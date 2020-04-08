@@ -1,0 +1,126 @@
+package java01.basic.ex03;
+
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Ex05 {
+	public static void q1() {
+		System.out.println("1번, 세 수 입력  ");
+		Scanner in = new Scanner(System.in);
+		int b, c, max;
+
+		max = in.nextInt();
+		b = in.nextInt();
+		max = max > b ? max : b;
+		c = in.nextInt();
+		max = max > c ? max : c;
+
+		System.out.println("max : " + max);	
+		System.out.println();
+	}
+
+	public static void q2() {
+		System.out.println("숫자 판별");
+		Scanner in = new Scanner(System.in);
+		int num = in.nextInt();
+		String check = "양수";
+		int ret = num;
+
+		if(num < 0) 
+		{check = "음수"; ret *= -1;}
+
+		System.out.println("판별할 수 : " + num);
+		System.out.println(check + " : " + ret);
+		System.out.println();
+	}
+
+	public static void q3() {
+		System.out.println("태어난 년도 2자리 입력 ");
+		Scanner in = new Scanner(System.in);
+		int year = in.nextInt();
+		int defaultYear = 121;
+
+		if(year < 21) defaultYear = 21;
+
+		System.out.println(year + "에 태어난 당신은 " + (defaultYear - year) + "살 입니다");
+		System.out.println();
+	}
+
+	public static void q4() {
+
+		Scanner in = new Scanner(System.in);
+		int num = in.nextInt();
+		
+		switch(num/10) {
+		case 9:	System.out.println("A");
+			break;
+		case 8:System.out.println("B");
+			break;
+
+		case 7:System.out.println("C");
+			break;
+			
+			default: System.out.println("F");
+
+		}
+
+		if(num%10 > 5 && num > 60)System.out.println("+");
+	}
+	
+	public static void q5() {
+		
+		int rand[] = new int[10];
+		int max = 2<<9;
+		
+		for (int i = 0; i < 10; i++) {
+			rand[i] = (int)(Math.random() * 100) +1;
+			max = max > rand[i] ? max : rand[i];
+			
+			System.out.print(rand[i] + " ");
+		}
+		System.out.println();
+		System.out.println("max : " + max);
+		//Collections.sort(rand);
+	}
+
+	public static void q6() {
+		/*
+			3분 50초 = 230sec
+			─┌┐┘└│ ■
+		*/
+		
+		Scanner in = new Scanner(System.in);
+		final int SONGLEN = 230;
+		int len = 10;
+		int num = in.nextInt();
+		int percent = (int) (((double)num / SONGLEN) * 100);
+		
+		
+		System.out.print("┌");
+		for(int i = 0 ; i < 10 ; ++i) System.out.print("─");
+		System.out.println("┐");
+		System.out.print("│");
+		
+		for(int i = 0 ; i< pecent/20 ; ++i)
+		System.out.println(percent);
+		
+		
+		System.out.println("│");
+		System.out.print("└");
+		for(int i = 0 ; i < 10 ; ++i) System.out.print("─");
+		System.out.println("┘");
+		
+	}
+	
+	public static void main(String[] args) {
+
+//		q1();
+//		q2();
+//		q3();
+//		q4();
+//		q5();
+		q6();
+
+
+	}
+}

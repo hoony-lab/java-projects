@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;mail.app.JinsMail.java&apos; to &apos;JinsMailTest.java&apos;&#x0D;&#x0A;- Original project: &apos;20200326&apos;&#x0D;&#x0A;- Original element: &apos;mail.app.JinsMail.java&apos;&#x0D;&#x0A;- Renamed element: &apos;mail.app.JinsMailTest.java&apos;" description="Rename compilation unit &apos;JinsMail.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;mail.app{JinsMail.java" name="JinsMailTest.java" references="false" stamp="1585190578776" version="1.0"/>
+</session>

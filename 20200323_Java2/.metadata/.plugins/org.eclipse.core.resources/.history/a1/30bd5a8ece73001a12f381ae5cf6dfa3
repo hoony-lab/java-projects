@@ -1,0 +1,74 @@
+package java07.AccessController;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+class ChildClass extends FieldEx01{
+
+	public ChildClass(int privateN, int defaultN, int protectedN, int publicN) {
+		super(privateN, defaultN, protectedN, publicN);
+		// TODO Auto-generated constructor stub
+	}
+	//
+	//	public ChildClass() {
+	//		//super(privateN, defaultN, protectedN, publicN);
+	//		//super.privateN = 1;
+	//		super.defaultN = 1;
+	//		super.protectedN = 1;
+	//		super.publicN = 1;
+	//
+	//	}
+
+}
+public class MainClass {
+	public static void main(String[] args) {
+
+		/*
+		 * //ArithmeticEx01 ari = new ArithmeticEx02(); IArithmetic ari1 = new
+		 * ArithmeticEx01(); IArithmetic ari2 = new ArithmeticEx02();
+		 * 
+		 * System.out.println("ari1.NoExceptionCase();"); ari1.NoExceptionCase();
+		 * 
+		 * 
+		 * System.out.println("ari2.NoExceptionCase();"); ari2.NoExceptionCase();
+		 */
+
+
+
+
+
+		//Member
+		Talkbox tb = new Talkbox();
+		try {
+			tb.getMember().setId("testID");
+		} catch (Exception e) {
+			System.out.println(e);
+			Member member = new Member();
+			tb.setMember(member);
+			tb.getMember().setId("testID");
+		}
+		System.out.println(tb.getMember().getId());
+
+
+		
+		List<String> lst = new ArrayList<String>();
+		
+		lst.add("HEELO");
+		System.out.println(lst.get(0));
+		
+		Set<String> se = new HashSet<String>();
+		Set<String> se2 = new TreeSet<String>();
+		TreeSet<String> se2 = new TreeSet<String>();
+		se.add("heheh");
+		
+		Iterator<String> iter;
+		//iter = se.iterator();
+		//iter = se.descendingIterator();
+		iter = se2.
+		
+	}
+}

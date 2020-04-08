@@ -1,0 +1,96 @@
+package application;
+
+import java.awt.Toolkit;
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+public class Pane06 extends Application{
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		int screenWidht = Toolkit.getDefaultToolkit().getScreenSize().width;
+		int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
+		int frameWidth = 720;
+		int frameHeight = 480;
+		int rectSize = 200;
+		int rx = rectSize - 100;
+		int ry = rectSize - 150;
+		int margin = 50;
+		
+		
+		Shape shape = new Shape();
+		Rectangle rec = shape.getRectangle(Color.INDIANRED,
+				frameWidth / 2 - rectSize / 2, frameHeight / 2 - rectSize / 2, rectSize, rectSize);
+		
+		Circle cir = shape.getCircle(Color.BLUEVIOLET,
+				frameWidth / 2 - rectSize / 2, frameHeight / 2 - rectSize / 2, rectSize / 2);
+		
+		Ellipse elli = new Ellipse(
+				frameWidth / 2, frameHeight / 2, rx, ry);
+		
+		
+		
+		Pane canvas = new Pane();
+		canvas.setStyle("-fx-background-color : blue");
+		canvas.setPrefSize(screenWidht, screenHeight);
+		
+		
+		
+		Group group1 = new Group();
+		group1.getChildren().addAll(rec, cir, elli);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Group group2 = new Group();
+		group2.relocate(margin, margin);
+		group2.getChildren().addAll();
+		
+		
+		
+		Group group3 = new Group();
+		group3.getChildren().addAll();
+		
+		
+		
+		Group group4 = new Group();
+		group4.getChildren().add(
+				shape.getRectangle(Color.FORESTGREEN,
+						margin, frameHeight / 2 + margin, frameWidth - margin * 2, frameHeight / 2 - margin * 2));
+		
+		
+		
+		
+		
+		
+		Group bigGroup = new Group();
+		bigGroup.getChildren().addAll(canvas, group1, group2, group3, group4);
+		
+		Scene scene = new Scene(bigGroup, frameWidth, frameHeight);
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Pane06");
+		primaryStage.setAlwaysOnTop(true);
+		primaryStage.show();
+	}
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

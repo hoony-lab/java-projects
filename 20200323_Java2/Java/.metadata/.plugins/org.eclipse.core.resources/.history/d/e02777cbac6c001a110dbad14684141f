@@ -1,0 +1,25 @@
+package testPackage;
+
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Hell");	
+		System.out.println("world");
+		
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("당신의 이름 ? ");
+		String name = scanner 26
+		
+		
+		
+		String str = scanner.next();
+		//Scanner scanner = new Scanner(System.in);
+		String str2 = scanner.next();
+		System.out.println(str + str2);
+		
+	}
+}

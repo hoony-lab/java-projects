@@ -1,0 +1,44 @@
+package loginCheck;
+
+import java.util.HashMap;
+
+public class MyDB {
+	HashMap<String, String> idnPwd = new HashMap<String, String>();
+
+	// five inital data input
+	public MyDB(HashMap<String, String> idnPwd) {
+//		HashMap<String, String> tempIdnPwd = new HashMap<String, String>();
+
+	
+//		tempIdnPwd.put("asdf", "asdf"); tempIdnPwd.put("asdf2", "asdf2");
+//		tempIdnPwd.put("asdf3", "asdf3"); tempIdnPwd.put("asdf4", "asdf4");
+//		tempIdnPwd.put("asdf5", "asdf5");
+		
+
+//		addIdnPwd("asdf", "asdf");
+//		addIdnPwd("asdf2", "asdf2");
+//		addIdnPwd("asdf3", "asdf3");
+//		addIdnPwd("asdf4", "asdf4");
+//		addIdnPwd("asdf5", "asdf5");
+
+		this.idnPwd = idnPwd;
+	}
+
+	public MyDB() {
+		this(null);
+	}
+
+	public HashMap<String, String> getIdnPwd() {
+		return idnPwd;
+	}
+
+	public void setIdnPwd(HashMap<String, String> idnPwd) {
+		this.idnPwd = idnPwd;
+	}
+
+	public void addIdnPwd(String id, String pwd) {
+		idnPwd.put(id, pwd);
+	}
+	
+
+}

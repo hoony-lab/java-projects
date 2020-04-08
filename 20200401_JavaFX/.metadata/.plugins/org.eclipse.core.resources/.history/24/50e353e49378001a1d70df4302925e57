@@ -1,0 +1,10 @@
+package application;
+
+public class Container {
+	public HBox getHbox() {
+		
+	}
+	public VBox getVbox() {
+		
+	}
+}

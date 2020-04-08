@@ -1,0 +1,52 @@
+package elavator.app;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+public class Floor {
+	private int way;
+	private List<Integer> passenger;
+
+	//private List<Pair> floors;
+	//	private List<Integer[]> floors;// = new ArrayList<Integer>();
+	//	private Map<Integer, Integer> f;
+
+
+	public Floor(int way, List<Integer> passenger) {
+		super();
+		this.way = way;
+		this.passenger = new ArrayList<Integer>();
+	}
+	Floor(){
+		this(0, null);
+	}
+
+
+
+	public int getWay() {
+		return way;
+	}
+	public void setWay(int way) {
+		this.way = way;
+	}
+	public List<Integer> getPassenger() {
+		return passenger;
+	}
+	public void setPassenger(List<Integer> passenger) {
+		this.passenger = passenger;
+	}
+	
+	public boolean hasPassengerByFloor(int floor) {
+		return this.passenger.contains(o)(floor);
+	}
+	public void addPassenger(int floor) {
+		this.passenger.add(floor);
+	}
+	public void checkInPassenger(int floor) {
+		while(this.getPassengerByFloor(floor)) {
+			this.passenger.remove(floor);			
+		}
+	}
+
+}

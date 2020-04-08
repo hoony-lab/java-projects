@@ -1,0 +1,71 @@
+package cls.app;
+
+class Computer{
+	String name;
+	String spec;
+	int ram;
+	int hdd;
+
+
+	Computer(){}
+
+	Computer(String n, String s){}
+
+	void setComputer(String n, int r, int h) {
+		this.name = n;
+		this.ram = r;
+		this.hdd = h;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSpec() {
+		return spec;
+	}
+
+	public void setSpec(String spec) {
+		this.spec = spec;
+	}
+
+	public int getRam() {
+		return ram;
+	}
+
+	public void setRam(int ram) {
+		this.ram = ram;
+	}
+
+	public int getHdd() {
+		return hdd;
+	}
+
+	public void setHdd(int hdd) {
+		this.hdd = hdd;
+	}
+}
+
+class ChatBox{
+	String picture;
+	String id;
+	String content;
+	String time;
+}
+
+public class ClassTest {
+
+
+
+
+	public static void main(String[] args) {
+
+		Computer com = new Computer();
+
+		com.setComputer("Ak", 16, 1024);
+	}
+}

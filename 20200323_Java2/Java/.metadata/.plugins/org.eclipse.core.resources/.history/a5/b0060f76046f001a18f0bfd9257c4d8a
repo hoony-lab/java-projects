@@ -1,0 +1,75 @@
+package java04.app;
+
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class Ex01 {
+
+	
+	private static void getCertiNum3(Scanner in, Random rand) {
+		int t;
+		int randNum;
+		t = in.nextInt();
+		int num = 0;
+		while(t > 0) {
+			t--;
+			randNum = rand.nextInt(10);
+
+			num += randNum;
+			num *= 10;
+		}
+		System.out.println(num);
+	}
+
+	private static Random getCertiNum2(Scanner in) {
+		int t = in.nextInt();
+		int randNum;
+		String s = "";
+		Random rand = new Random();
+
+		while(t-- > 0 ){
+
+			randNum = rand.nextInt(10);
+			s = s.concat(Integer.toString(randNum));
+
+		}
+
+		System.out.println(s);
+		return rand;
+	}
+
+	static String getCertiNum(int n) {
+		int digit = 1;
+
+		while(n-- > 0)	{
+			
+			digit *= 10;
+			
+		}
+		
+		//return digit;
+		//return new Random().nextInt(digit);
+		String.format("%04d", new Random().nextInt(digit));
+	}
+
+	public static void main(String[] args) {
+
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		int certiNum = getCertiNum(n);
+
+		System.out.println(certiNum);
+
+		
+		
+		int t;
+		int randNum;
+		Random rand = getCertiNum2(in);
+
+
+		getCertiNum3(in, rand);
+	}
+
+
+}

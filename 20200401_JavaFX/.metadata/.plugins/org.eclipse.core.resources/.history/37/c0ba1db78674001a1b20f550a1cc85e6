@@ -1,0 +1,11 @@
+package application;
+
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+public class Shape {
+	
+	public Rectangle getRectangle(int x, int y, int w, int h, Color color){
+		
+	}
+}

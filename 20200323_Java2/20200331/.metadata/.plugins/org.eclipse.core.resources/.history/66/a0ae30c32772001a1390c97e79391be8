@@ -1,0 +1,16 @@
+package test.app;
+
+public class JavaTest {
+	public static void main(String[] args) {
+		
+		Talkbox talkbox = new Talkbox();
+		
+		talkbox.setContents("좋은아침");
+		talkbox.setChatTime("아침시간");
+		
+		System.out.println(talkbox.getMember());
+		System.out.println(talkbox.getContents());
+		System.out.println(talkbox.getChatTime());
+				
+	}
+}

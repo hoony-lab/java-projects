@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="248"/>
+		<item key="DIALOG_Y_ORIGIN" value="398"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="package java01.basic.ex04;"/>
+		<list key="findhistory">
+			<item value="package java01.basic.ex04;"/>
+			<item value="&#x09;@SuppressWarnings(&quot;unused&quot;)"/>
+			<item value="package java04.app;"/>
+			<item value="in.nextInt();"/>
+			<item value="package java01.basic.ex03;"/>
+			<item value="name"/>
+			<item value=""/>
+		</list>
+	</section>
+</section>

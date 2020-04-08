@@ -1,0 +1,154 @@
+package elavator.app;
+
+public class Main extends Keyword {
+
+
+
+	public static void main(String[] args) {
+		Main init = new Main();
+		init.Play();		
+	}
+
+	public Main() {		
+		Elevator[] elevator = new Elevator[ELEVATORAMOUNT];
+		Floor[] floor = new Floor[MAXFLOOR];
+		//for(int i = 0 ; i < 3 ; ++i) elevator[i] = new Elevator();
+		for(int i = 0 ; i < MAXFLOOR ; ++i) floor[i] = new Floor();
+	}
+	
+
+	protected void Play() {
+		int randFloor = 1;
+		int randWay = 0;
+		int randPassenger = 0;
+		int isWaiting = NO;
+		int isMoving = NO;
+		int time = 0;
+		int currentFloor = 1;
+
+		while(time++ < 100) {
+
+			// passenger hit each floor DOWN UP UPANDDOWN
+			// floor.hitFloor()
+//
+//			Floor[] tempFloor = new Floor[MAXFLOOR];
+//			for(int f = 1 ; f < MAXFLOOR ; ++f) {
+//				randWay = rand.nextInt(UP + DOWN);
+//				randPassenger = rand.nextInt(MAXPASSENGER);
+//				
+//				tempFloor[f].setWay(rand.nextInt(UP + DOWN));
+//
+//				if(randWay != 0) {
+//					tempFloor[f].watingPassenger(randPassenger);
+//					isWaiting = YES;
+//				}
+//
+//				floor[f].setWay(tempFloor[f].getWay() & floor[f].getWay());
+//				floor[f].watingPassenger(randPassenger);
+//			}
+
+			randFloor = rand.nextInt(MAXFLOOR - 1) + 1;
+			randWay = rand.nextInt(UP + DOWN);
+			randPassenger = rand.nextInt(MAXPASSENGER - 1) + 1;
+			
+			
+			
+			
+			
+			
+
+			/*
+			 * 한틱에 두가지 액션: 문 열리고 태우고내리기, 한층 움직이기
+
+			 * 언제 문이 열리나
+					엘베의 있는 층에 버튼이 눌렸을때
+					엘베에 그 층이 눌렸을 때
+						같은방향
+
+
+			 * 언제 움직이나
+					처음 
+					엘베 있는 층에 버튼이 '안' 눌렸을때
+					엘베에 그 층이 '안' 눌렸을때
+
+			 * 누가 움직이나
+						세 개의 엘베중 그 방향이고,
+							가장 가까운거
+						셋다 아니면 바쁨,,, 일단대기
+			 */
+
+			// if elevator hasDestination, open
+			for(int i = 0 ; i < ELEVATORAMOUNT ; ++i) {
+
+				currentFloor = elevator[i].getCurrentFloor();
+
+				if(elevator[i].hasDestination()) {
+					elevator[i].checkOutPassenger(currentFloor);
+					floor[currentFloor].setWay(WAIT);
+					elevator[i].setIsStopped(YES);
+				}
+				else if(elevator[i].getWay() == floor[currentFloor].getWay()) {
+					elevator[i].checkInPassenger(floor[currentFloor]);
+					floor[currentFloor].setWay(WAIT);
+					elevator[i].setIsStopped(YES);
+				}
+			}
+
+
+			// 해당 층으로부터 가장 가까운 엘베 구하기
+			int minDistanceElevator = MAXFLOOR + 1;
+
+			for(int i = 0 ; i < ELEVATORAMOUNT; ++i) {
+				int distance = elevator[i].getDistanceCurrentFloorFromHitFloor(floor);
+				minDistanceElevator = minDistanceElevator < distance ? minDistanceElevator : distance;
+			}
+
+			//elevator[minDistanceElevator].addFloors();
+
+
+
+
+
+
+
+			// if passenger is waiting
+
+			for(int i = 0 ; i < ELEVATORAMOUNT ; ++i) {
+
+				if(elevator[i].getWay() == DOWN) {
+					for(int j = i ; j > 0 ; --j) {
+
+					}
+				}
+				else if(elevator[i].getWay() == UP) {
+					for(int j = i ; j <= MAXFLOOR ; ++j) {
+						//if(elevator[i].getCurrentFloor())
+					}
+				}
+			}
+
+
+
+			// else move UP DOWN to destination of elevator
+
+			for(int i = 0 ; i < ELEVATORAMOUNT ; ++i) {
+				elevator[i].moveElevator(i);
+			}
+
+
+
+
+			for(int i = 0 ; i < ELEVATORAMOUNT; ++i)
+				showElevator(i);
+
+
+		}
+
+	}	
+
+
+	private void showElevator(int i) {
+		elevator[i].toString();
+	}
+
+}

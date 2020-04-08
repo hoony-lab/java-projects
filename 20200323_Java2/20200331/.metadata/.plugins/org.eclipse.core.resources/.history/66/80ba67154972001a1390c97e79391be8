@@ -1,0 +1,16 @@
+package inheritance;
+
+public abstract class Attack {
+
+	public String MeeleAttack(){
+		
+	}
+	public String StandoffAttack() {
+		return "TBDTDB";
+	}
+	
+	public abstract String MeeleAttack();
+	
+	
+}
+

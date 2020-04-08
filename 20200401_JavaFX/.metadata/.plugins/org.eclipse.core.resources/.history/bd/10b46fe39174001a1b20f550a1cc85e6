@@ -1,0 +1,62 @@
+package application;
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+public class Pane05VSGroup extends Application{
+
+	@Override
+	public void init() throws Exception {
+		super.init();
+		
+		Pane pane = new Pane();
+		VBox.setVgrow(pane, Priority.NEVER);
+		
+		Group group = new Group();
+		VBox.setVgrow(group, Priority.NEVER);
+
+		VBox vbox = new VBox(group, pane);
+		
+		
+		Shape shape = new Shape();
+		Rectangle rec1 = shape.getRectangle(Color.BLUE, 100, 100, 100, 100);
+		Rectangle rec2 = shape.getRectangle(Color.BLUE, 100, 100, 100, 100);
+		Rectangle rec3 = shape.getRectangle(Color.BLUE, 200, 200, 100, 100);
+		Rectangle rec4 = shape.getRectangle(Color.BLUE, 200, 200, 100, 100);
+	 
+
+		switch (e.getCode()) {
+		case LEFT:
+			deltax = -10;
+			break;
+		
+		case RIGHT:
+			deltax=10;
+			break;
+			
+		default:
+			deltax = 0;
+			break;
+		}
+	}
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		Scene scene = new Scene(pane);
+		
+		
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+	}
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

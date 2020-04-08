@@ -1,0 +1,15 @@
+1585201648797	Extract method 'sendMail'
+1585269737732	Move compilation unit
+1585269739785	Move compilation unit
+1585271654682	Rename type 'BoardPassenger'
+1585273986038	Rename type 'Elavator'
+1585274075908	Rename type 'MoveElavator'
+1585274078430	Rename type 'StopElavator'
+1585281709103	Delete element
+1585288577388	Delete element
+1585288579170	Delete element
+1585288581951	Delete element
+1585288583961	Delete element
+1585288586545	Delete element
+1585288588711	Delete element
+1585300849838	Copy package

@@ -1,0 +1,13 @@
+package elavator.app;
+
+public class Keyword {
+	public static final int MAXPASSENGER = 10;
+	public static final int MAXFLOOR = 20;
+	static final int UPANDDOWN = 3;
+	static final int UP = 2;
+	static final int DOWN = 1;
+	static final int WAIT = 0;
+	static final int YES = 1;
+	static final int NO = 10;
+	static final int ELEVATORAMOUNT = 3;
+}

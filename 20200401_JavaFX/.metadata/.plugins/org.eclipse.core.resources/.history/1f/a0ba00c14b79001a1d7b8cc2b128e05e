@@ -1,0 +1,23 @@
+package intputoutput;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+public class IOController implements Initializable{
+
+	@FXML private Button btn;
+	@FXML private TextField tf01, tf02;
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+	}
+
+	private void btnClickHandler() {
+		
+	}
+}

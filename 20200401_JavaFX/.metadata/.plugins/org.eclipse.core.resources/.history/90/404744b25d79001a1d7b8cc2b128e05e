@@ -1,0 +1,11 @@
+package login;
+
+import java.util.HashMap;
+
+public class MyDB {
+	HashMap<String, String> id = new HashMap<String, String>();
+	HashMap<String, String> pwd = new HashMap<String, String>();
+	
+	
+	// five inital data input
+}

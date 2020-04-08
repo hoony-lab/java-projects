@@ -1,0 +1,123 @@
+package mail.app;
+
+import java.util.Random;
+import java.util.Scanner;
+
+import com.jin.mail.JinsMail;
+@SuppressWarnings("unused")
+public class JinsMailTest {
+
+	@SuppressWarnings("unused")
+	private static void getCertiNum3(Scanner in, Random rand) {
+		int t;
+		int randNum;
+		t = in.nextInt();
+		int num = 0;
+		while(t > 0) {
+			t--;
+			randNum = rand.nextInt(10);
+
+			num += randNum;
+			num *= 10;
+		}
+		System.out.println(num);
+	}
+
+	@SuppressWarnings("unused")
+	private static Random getCertiNum2(Scanner in) {
+		int t = in.nextInt();
+		int randNum;
+		String s = "";
+		Random rand = new Random();
+
+		while(t-- > 0 ){
+
+			randNum = rand.nextInt(10);
+			s = s.concat(Integer.toString(randNum));
+
+		}
+
+		System.out.println(s);
+		return rand;
+	}
+
+
+
+
+
+
+	static String getCertiNum(int n) {
+		int digit = 1;
+		String ret = "";
+		String formatStr = "%0"+n+"d";
+
+		while(n-- > 0) digit *= 10;
+
+		ret += String.format(formatStr, new Random().nextInt(digit));
+
+		//return digit;
+		//return new Random().nextInt(digit);
+		return ret;
+	}
+
+	public static void main(String[] args) {
+
+
+
+
+		sendMail();
+
+
+	}
+
+	private static void sendMail() {
+		Scanner in = new Scanner(System.in);
+
+		JinsMail mail = new JinsMail();
+
+		String id = "jihun9839@gmail.com";
+		//		System.out.println("PWD : ");
+		//		String pw = in.nextLine();
+		System.out.print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\taaa\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttt\t");
+		String pw = "!?!??!!?!?";
+
+		System.out.println(pw);
+		mail.setId(id);
+		mail.setPw(pw);
+		String snduserName = "ANONYMOUS";
+		String sndUsrEmail = "anonymous@hack.ca";
+		mail.setSndUsr(snduserName, sndUsrEmail);
+
+		System.out.println();
+
+		//mail.SendMail(recvUsrEmail, title, contents);
+		//mail.SendMail(sndUsrName, sndUsrEmail, recvUsrEmail, title, contents);
+
+		//tring []recvUsrEmail = {"pjus0121@gmail.com", "qordmswl1541@gmail.com"};
+
+		String certiNum = getCertiNum(6);
+		//String title = "You've got hacked !!!";
+		String contents = "Send $100 to my bitcoin account !!!";
+		contents += "\nyour certification Number : " + certiNum;
+		contents += "\nPlease write down correct number";
+
+
+		//		for (int i = 0; i < recvUsrEmail.length; i++) {
+		//
+		//			if(mail.SendMail(recvUsrEmail[i], title, contents)) {
+		//				System.out.println("Email sent !! to :" + recvUsrEmail[i]);
+		//			}
+		//			else {
+		//				System.out.println("Email ERROR !! to :" + recvUsrEmail[i]);
+		//			}
+		//		}
+
+		mail.SendMail(id, "Check your Certification Number", contents);
+		while(true) {
+			if(in.hasNext(certiNum)) {
+				System.out.println("Certification Number Matched"); break;
+			}
+			else System.out.println("Certification Number Matched");
+		}
+	}
+}

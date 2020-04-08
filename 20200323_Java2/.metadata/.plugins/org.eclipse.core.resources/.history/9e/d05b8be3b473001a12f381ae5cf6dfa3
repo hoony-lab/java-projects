@@ -1,0 +1,21 @@
+package java07.AccessController;
+
+
+
+class ChildClass extends FieldEx01{
+
+	public ChildClass() {
+		//super(privateN, defaultN, protectedN, publicN);
+		super.privateN = 1;
+		super.defaultN = 1;
+		super.protectedN = 1;
+		super.publicN = 1;
+
+	}
+	
+}
+public class MainClass {
+	public static void main(String[] args) {
+
+	}
+}

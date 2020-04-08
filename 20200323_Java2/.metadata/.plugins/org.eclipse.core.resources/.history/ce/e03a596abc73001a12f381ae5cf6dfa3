@@ -1,0 +1,6 @@
+package java07.AccessController;
+
+public interface IArithmetic {
+	int a;
+	public void NoExceptionCase();
+}

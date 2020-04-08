@@ -1,0 +1,23 @@
+package login;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+
+public class Controller05 implements Initializable{
+
+	@FXML private Button btn;
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		btn.setOnAction(handleBtnAction);
+	}
+	
+	private void handleBtnAction(ActionEvent event) {
+		
+	}
+}

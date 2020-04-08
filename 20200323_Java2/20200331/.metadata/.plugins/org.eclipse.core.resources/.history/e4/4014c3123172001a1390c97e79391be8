@@ -1,0 +1,23 @@
+package java06.InheritanceEx06.Ex01;
+
+public class CodeMain {
+	public static void main(String [] args){
+		L2Char l2c = new L2Char();
+		
+		l2c.setName("능력자");
+		l2c.setRace("인간");
+		
+		
+		
+		String ret = "";
+		ret += l2c.getName();
+		ret += "\n";
+		ret += l2c.getRace();
+		ret += "\n";
+		System.out.println(ret);
+		l2c.showAbility();
+	}
+}
+/*
+ * 위의 코드를 분석하여 포켓몬Go 케릭터를 만들어 보시오 
+ */

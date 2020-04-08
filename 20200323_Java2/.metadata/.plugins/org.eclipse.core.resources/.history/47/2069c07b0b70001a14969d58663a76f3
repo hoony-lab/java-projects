@@ -1,0 +1,172 @@
+package elavator.app;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Elevator extends Keyword {	
+
+	private int isStopped;
+	private int way;	
+	private List<Passenger> passenger;
+	private int currentFloor;
+	private Set<Integer> floors;// = new ArrayList<Integer>();
+
+
+
+	public Elevator(int isStopped, int way, List<Passenger> passenger, int currentFloor, Set<Integer> floors) {
+		super();
+		this.isStopped = 0;
+		this.way = way;
+		this.passenger = new ArrayList<>();
+		this.currentFloor = currentFloor;
+		this.floors = new TreeSet<Integer>();
+	}
+	public Elevator() {
+		this(0, 0, null, 1, null);
+	}
+
+
+	public int getIsStopped() {
+		return isStopped;
+	}
+	public void setIsStopped(int isStopped) {
+		this.isStopped = isStopped;
+	}
+	public int getWay() {
+		return way;
+	}
+	public void setWay(int way) {
+		this.way = way;
+	}
+	public List<Passenger> getPassenger() {
+		return passenger;
+	}
+	public void setPassenger(List<Passenger> passenger) {
+		this.passenger = passenger;
+	}
+	public int getCurrentFloor() {
+		return currentFloor;
+	}
+	public void setCurrentFloor(int currentFloor) {
+		this.currentFloor = currentFloor;
+	}
+	public Set<Integer> getFloors() {
+		return floors;
+	}
+	public void setFloors(Set<Integer> floors) {
+		this.floors = floors;
+	}
+
+
+
+	public boolean hasDestination() {
+		// TODO Auto-generated method stub
+		if(floors.contains(currentFloor))
+			return true;
+		return false;		
+	}
+	public void checkInPassenger(Floor floorNum) {
+		// TODO Auto-generated method stub
+		this.passenger.addAll(floorNum.getPassenger());
+	}
+	public void checkOutPassenger(Floor floorNum) {
+		// TODO Auto-generated method stub
+		
+			this.passenger.remove(floorNum);
+	}
+	public void removeFloors(int floor) {
+		while(this.floors.contains(floor))
+			this.floors.remove(floor);
+	}
+	public void addFloors(int floor) {
+		this.floors.add(floor);
+	}
+
+	// find distance from hit floor
+	public int getDistanceCurrentFloorFromHitFloor(Floor[] floor) {
+		int distance = -1;
+
+		if(way == DOWN) {
+			for(int f = currentFloor ; f > 0 ; --f) {
+				if((floor[f].getWay() & way) == DOWN) {
+					distance = currentFloor - f;
+					break;
+				}
+			}
+		}
+		else if(way == UP) {
+			for(int f = currentFloor ; f <= MAXFLOOR ; ++f) {
+				if((floor[f].getWay() & way) == UP) {
+					distance = f - currentFloor;
+					break;
+				}
+			}
+		}
+
+		return distance;
+	}
+
+	// move UP DOWN to destination of elevator
+	public void moveElevator(int i) {
+		// TODO Auto-generated method stub
+		if(elevator[i].getWay() == DOWN) {
+			elevator[i].setWay(elevator[i].getWay() - 1);
+		}
+		else if(elevator[i].getWay() == UP) {
+			elevator[i].setWay(elevator[i].getWay() + 1);
+		}
+	}
+
+
+	public void openElevator(Floor[] floor) {
+
+		if(hasDestination()) {
+			checkOutPassenger(currentFloor);
+			floor[currentFloor].setWay(WAIT);
+			setIsStopped(YES);
+		}
+		else if(floor[currentFloor].getWay() == way) {
+			checkInPassenger(floor[currentFloor]);
+			floor[currentFloor].setWay(WAIT);
+			setIsStopped(YES);
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public String toString() {
+		String ret = "";
+		ret += LINE;
+		for(int f = MAXFLOOR ; f > 0 ; --f) {
+			ret += "|\t  \t|\n";
+			if(currentFloor == f)
+				ret += "|\t  " + f + "\t|\n";
+		}
+		ret += "hitFloors : ";
+		for(int n : floors)
+			ret += n + " ";
+		ret += LINE;
+
+		return ret;
+	}
+
+
+
+}

@@ -1,0 +1,7 @@
+package java07.AccessController;
+
+public class IArithmetic {
+	final int NUM = 100;
+	int result;
+	
+}

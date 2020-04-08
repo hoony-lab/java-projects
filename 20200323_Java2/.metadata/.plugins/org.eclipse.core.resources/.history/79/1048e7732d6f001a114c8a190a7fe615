@@ -1,0 +1,15 @@
+package cls.app;
+
+class Computer{
+	
+}
+
+public class ClassTest {
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+	}
+}

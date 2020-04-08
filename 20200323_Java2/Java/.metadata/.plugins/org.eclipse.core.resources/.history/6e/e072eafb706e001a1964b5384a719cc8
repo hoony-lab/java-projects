@@ -1,0 +1,10 @@
+package java04.application;
+
+public class Solution {
+    public static int solution(int[] l) {
+        // Your code here
+    	int answer = 0;
+    	
+    	return answer;
+    }
+}

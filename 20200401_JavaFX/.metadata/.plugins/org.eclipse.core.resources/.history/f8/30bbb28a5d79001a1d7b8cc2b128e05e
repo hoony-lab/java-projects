@@ -1,0 +1,7 @@
+package login;
+
+import java.util.HashMap;
+
+public class MyDB {
+	HashMap<String, string> map = new HashMap<string, string>();
+}

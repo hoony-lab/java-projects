@@ -1,0 +1,20 @@
+package elavator.app;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.AfterClass;
+import org.junit.jupiter.api.Test;
+
+class FunctionTest {
+
+	
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+	
+	@AfterClass
+	void Assert() {
+		assert();
+	}
+}

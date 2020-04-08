@@ -1,0 +1,19 @@
+package java04.application;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Ex01 {
+	public class Member {
+		String name, id, pwd;
+		int idx;
+	}
+	
+	public static void init() {
+		List list = new ArrayList(Member);
+		
+	}
+	public static void main(String[] args) {
+		
+	}
+}

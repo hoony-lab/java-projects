@@ -1,0 +1,6 @@
+package elavator.app;
+
+public class Passenger {
+	int floor;
+	
+}

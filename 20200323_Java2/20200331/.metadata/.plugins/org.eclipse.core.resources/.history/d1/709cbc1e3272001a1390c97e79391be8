@@ -1,0 +1,48 @@
+package java06.InheritanceEx06.Ex01;
+
+public class CodeMain {
+	final static int MAXPOKE = 10;
+	
+	public static void main(String [] args){
+		L2Char l2c = new L2Char();
+		
+		l2c.setName("능력자");
+		l2c.setRace("인간");
+		
+
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		
+		String [] pokeName = {"Caterpie" , "Metapod", "Butterfree", "weedle", "kakuna", "Beedrill", "Pidgey", "Pidgeotto", "Pidgeot", "Rattata"};
+		String [] pokeRace = {"Bug", "Bug", "Bug", "Bug", "Bug", "Bug", "Noraml", "Normal", "Normal", "Normal","Normal"};
+		
+		L2Char[] pokemon = new L2Char[MAXPOKE];
+		
+		for(int i = 0 ; i < MAXPOKE ; ++i) {
+			pokemon[i].setName(pokeName[i]);
+			pokemon[i].setRace(pokeRace[i]);
+			new showAllAbility(pokemon[i]);
+		}
+		
+		
+		
+	}
+	
+	private void showAllAbility(L2Char pokemon) {
+		String ret = "";
+		ret += pokemon.getName();
+		ret += "\n";
+		ret += pokemon.getRace();
+		ret += "\n";
+		System.out.println(ret);
+		pokemon.showAbility();
+		
+		System.out.println();
+		System.out.println();
+	}
+}
+/*
+ * 위의 코드를 분석하여 포켓몬Go 케릭터를 만들어 보시오 
+ */

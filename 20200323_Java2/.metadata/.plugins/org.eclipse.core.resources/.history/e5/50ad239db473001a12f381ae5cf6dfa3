@@ -1,0 +1,13 @@
+package java07.AccessController;
+
+
+
+public ChildClass extends FieldEx01{
+	
+}
+
+public class FieldEx01 {
+	public static void main(String[] args) {
+		
+	}
+}

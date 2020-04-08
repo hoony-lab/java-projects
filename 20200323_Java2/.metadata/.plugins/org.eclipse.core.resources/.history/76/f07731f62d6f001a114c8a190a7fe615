@@ -1,0 +1,30 @@
+package cls.app;
+
+class Computer{
+	String name;
+	String spec;
+	int ram;
+	int hdd;
+	
+	
+	Computer(){}
+	
+	Computer(String n, String s){}
+		
+	void setComputer(String n, int r, int h) {
+		this.name = n;
+	}
+}
+
+public class ClassTest {
+	
+	
+	
+	
+	public static void main(String[] args) {
+
+		Computer com = new Computer();
+		
+		com.setN
+	}
+}

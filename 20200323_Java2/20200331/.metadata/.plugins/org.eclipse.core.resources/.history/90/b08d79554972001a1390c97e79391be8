@@ -1,0 +1,25 @@
+package inheritance;
+
+public class Main {
+
+	public static void main(String[] args) {
+//		Attack attack = new Attack() {
+//			
+//			@Override
+//			public String MeeleAttack() {
+//				// TODO Auto-generated method stub
+//				return null;
+//			}
+//		};
+//		
+		Attack attack = new Attack() {
+			
+			@Override
+			public String MeeleAttack() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+		
+	}
+}

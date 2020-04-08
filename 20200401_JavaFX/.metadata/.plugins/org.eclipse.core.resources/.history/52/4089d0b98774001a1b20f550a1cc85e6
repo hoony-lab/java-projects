@@ -1,0 +1,26 @@
+package application;
+
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+public class Shape {
+	
+	public Rectangle getRectangle(int x, int y, int w, int h, Color color){
+		Rectangle rec = new Rectangle();
+		rec.setFill(color);
+		rec.setStroke(Color.BLUEVIOLET);
+		rec.setX(x);
+		rec.setY(y);
+		rec.setWidth(w);
+		rec.setHeight(h);
+		
+		return rec;
+	}
+	
+	
+	public Rectangle getRectangle(Color color, int x, int y, int w, int h){
+		Rectangle rec = new Rectangle(color, w, h);
+		
+		return rec;
+	}
+}

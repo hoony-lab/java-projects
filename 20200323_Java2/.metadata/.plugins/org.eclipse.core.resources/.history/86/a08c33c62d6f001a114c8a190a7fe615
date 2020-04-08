@@ -1,0 +1,22 @@
+package cls.app;
+
+class Computer{
+	String name;
+	String spec;
+	
+	Computer(){}
+	Computer(String n, String s) : n(name), spec(s);
+		
+	
+}
+
+public class ClassTest {
+	
+	
+	
+	
+	public static void main(String[] args) {
+
+		
+	}
+}

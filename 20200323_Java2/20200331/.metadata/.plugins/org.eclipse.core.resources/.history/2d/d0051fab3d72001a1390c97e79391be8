@@ -1,0 +1,22 @@
+package java06.InheritanceEx06.Ex01;
+
+public class PokemonGo extends GameChar{
+
+	String a;
+	String b;
+	String c;
+		
+	Public(){
+		super(5);
+		String [] ability = {"생명력", "몸무게", "키", "별의모래", "사탕"};
+		
+	}
+	
+	
+	public void buildUp() {
+		int [] intData = getFacultyData();
+		intData[0] *= 3;
+		intData[1] *= 1.5;
+		intData[2] *= 2;
+	}
+}

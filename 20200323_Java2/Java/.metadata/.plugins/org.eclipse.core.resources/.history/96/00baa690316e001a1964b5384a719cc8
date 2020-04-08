@@ -1,0 +1,11 @@
+package java04.application;
+
+public class Ex01 {
+	
+	public static void init() {
+		List list = new ArrayList();
+	}
+	public static void main(String[] args) {
+		
+	}
+}

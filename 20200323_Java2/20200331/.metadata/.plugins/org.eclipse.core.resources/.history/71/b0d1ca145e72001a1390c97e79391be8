@@ -1,0 +1,161 @@
+package elevator.app;
+
+public class Main extends Keyword {
+
+	public static void main(String[] args) {
+		Main init = new Main();
+		init.Play();		
+	}
+
+	public Main() {		
+
+		for(int i = 0 ; i < 3 ; ++i) elevator[i] = new Elevator();
+		for(int i = 0 ; i < MAXFLOOR ; ++i) floor[i] = new Floor();
+	}
+
+	/*
+	 * 한틱에 두가지 액션: 문 열리고 태우고내리기, 한층 움직이기
+
+	 * 언제 문이 열리나
+			엘베의 있는 층에 버튼이 눌렸을때
+			엘베에 그 층이 눌렸을 때
+				같은방향
+
+
+	 * 언제 움직이나
+			처음 
+			엘베 있는 층에 버튼이 '안' 눌렸을때
+			엘베에 그 층이 '안' 눌렸을때
+
+	 * 누가 움직이나
+				세 개의 엘베중 그 방향이고,
+					가장 가까운거
+				셋다 아니면 바쁨,,, 일단대기
+
+
+
+
+		랜덤 사람 기다림
+		엘베 층 검사
+		엘베 가는방향 이고 쉬는 엘베보다 가까우면  그 엘베가 감
+		아무것도 없으면 엘베 무빙
+
+	 */
+	protected void Play() {
+		int randFloor = 1;
+		int randWay = 0;
+		int randDestination = 0;
+		int time = 0;
+
+
+		while(time++ < 30) {
+			System.out.println("TIME : " + time);
+
+			// JUST ONE random input
+			randWay = rand.nextInt(UP + DOWN);
+			if(randWay != WAIT) {
+				if(randWay == DOWN ) {		
+					randFloor = rand.nextInt(MAXFLOOR - 2) + 2;
+					randDestination = rand.nextInt(randFloor - 1) + 1;				
+				}
+				else if(randWay == UP) {
+					randFloor = rand.nextInt(MAXFLOOR - 2) + 1;
+					randDestination = rand.nextInt(MAXFLOOR - randFloor) + 1 + randFloor;					
+				}
+			}
+			
+			showWatingPassenger(randWay, randFloor, randDestination);
+
+
+
+			// if elevator is on hasDestination or on hitFloor >> openElevator
+			for(int i = 0 ; i < ELEVATORAMOUNT ; ++i) {
+				elevator[i].openElevator(floor);
+			}
+
+			//  move UP DOWN to destination of elevator
+			for(int i = 0 ; i < ELEVATORAMOUNT ; ++i) {
+				elevator[i].moveElevator();
+			}
+
+
+			// get elevator which is
+			// waiting
+			// same way and not far from destination
+			int minDistanceElevator = -1;
+			if(randWay != WAIT) {
+				for(int i = 0 ; i < ELEVATORAMOUNT; ++i) {
+					if(elevator[i].getWay() == WAIT) {
+						minDistanceElevator = i;						
+					}
+					else {
+						if(elevator[i].getWay() == DOWN) {
+							if(elevator[i].getLowestHitFloor() - 2 > randDestination) {
+								minDistanceElevator = i;
+							}
+						}
+						else if(elevator[i].getWay() == UP) {
+							if(elevator[i].getHighestHitFloor() + 2 < randDestination) {
+								minDistanceElevator = i;
+							}
+						}
+					}
+
+
+
+					if(minDistanceElevator != -1) {
+						if(elevator[minDistanceElevator].getWay() == WAIT) {
+							if(elevator[minDistanceElevator].getCurrentFloor() < randFloor)
+								elevator[minDistanceElevator].setWay(UP);
+							else if(elevator[minDistanceElevator].getCurrentFloor() > randFloor)
+								elevator[minDistanceElevator].setWay(DOWN);
+						}
+						elevator[minDistanceElevator].addFloors(randFloor);
+						elevator[minDistanceElevator].setIsStopped(NO);
+						break;
+					}
+				}
+				
+				floor[randFloor].setWay(randWay);
+				floor[randFloor].addWatingPassenger(new Passenger(randDestination));
+			}
+
+
+			showAllElevators();
+
+
+		}
+
+	}	
+
+
+	// print random input
+	private void showWatingPassenger(int randWay, int randFloor, int randDestination){
+		String ret = "";
+		if(randWay == WAIT) {
+			ret += "타려는 사람이 없습니다.";
+		}
+		else {
+			ret += "[ " + randFloor + " ]층에서 ";
+			if(randWay == DOWN) 		ret += "아래 ";
+			else if(randWay == UP)		ret += "위 ";
+			ret += "[ " + randDestination + " ]층으로 가려 합니다.";
+		}
+		System.out.println(ret);
+	}
+
+
+	private void showElevator(int i) {
+		System.out.println(elevator[i].toString());
+	}
+	private void showAllElevators() {
+		for(int i = 0 ; i < ELEVATORAMOUNT; ++i)
+			showElevator(i);
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+	}
+
+}

@@ -1,0 +1,10 @@
+package java06.InheritanceEx06.Ex01;
+
+public class PokemonGo extends L2Char{
+
+	String a;
+	String b;
+	String c;
+	
+	
+}

@@ -1,0 +1,48 @@
+package elavator.app;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Floor extends Keyword {
+	private int way;
+	private List<Integer> passenger;
+
+	
+	
+	public Floor(int way, List<Integer> passenger) {
+		super();
+		this.way = way;
+		this.passenger = new ArrayList<Integer>();
+	}
+	Floor(){
+		this(0, null);
+	}
+
+
+
+	public int getWay() {
+		return way;
+	}
+	public void setWay(int way) {
+		this.way = way;
+	}
+	public List<Integer> getPassenger() {
+		return passenger;
+	}
+	public void setPassenger(List<Integer> passenger) {
+		this.passenger = passenger;
+	}
+
+
+	public void watingPassenger(int floor) {
+		this.passenger.add(floor);
+	}
+	@override
+	public void checkInPassenger(int floor) {
+		while(this.passenger.contains(floor)) 
+			this.passenger.remove(floor);			
+	}
+	@Override
+	public void checkinPassenger
+
+}

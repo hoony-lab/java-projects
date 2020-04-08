@@ -1,0 +1,8 @@
+package elavator.app;
+
+public class Passenger {
+	private int destination;
+	private int weight;
+	private int s
+	
+}

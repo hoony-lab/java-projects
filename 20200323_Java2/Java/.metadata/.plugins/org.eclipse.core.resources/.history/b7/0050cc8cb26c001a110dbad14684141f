@@ -1,0 +1,19 @@
+package java01.basic.ex03;
+
+import java.util.Scanner;
+
+public class Ex03 {
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("whats your current height ? ");
+		int currentHeight= in.nextInt();
+		
+		System.out.println("whats your current weight ? ");
+		int currentWeight = in.nextInt();
+
+		int standardWeight = (currentHeight - 100) * 0.9;
+		System.out.println("your FATness is : " + currentWeight - );
+	}
+}

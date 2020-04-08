@@ -1,0 +1,15 @@
+1584928359917	Move compilation unit
+1584929826047	Move compilation unit
+1584931303583	Copy package
+1584931332262	Rename package 'testPackage.copy'
+1584931342751	Rename package 'testPackage'
+1584932180875	Delete element
+1584932996966	Rename local variable 'currentHeight'
+1584933007715	Rename local variable 'cusrrentHeight'
+1585014223527	Rename package 'java.basic.ex04'
+1585186877974	Extract method 'getCertiNum2'
+1585186906226	Extract method 'getCertiNum3'
+1585187923988	Move 'com' to 'mail'
+1585187925394	Move 'javax' to 'mail'
+1585187926564	Move 'META-INF' to 'mail'
+1585188753410	Delete element

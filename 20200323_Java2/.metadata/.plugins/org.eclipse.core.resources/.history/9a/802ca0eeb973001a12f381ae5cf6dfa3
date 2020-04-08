@@ -1,0 +1,35 @@
+package java07.AccessController;
+
+
+
+class ChildClass extends FieldEx01{
+
+	public ChildClass(int privateN, int defaultN, int protectedN, int publicN) {
+		super(privateN, defaultN, protectedN, publicN);
+		// TODO Auto-generated constructor stub
+	}
+	//
+	//	public ChildClass() {
+	//		//super(privateN, defaultN, protectedN, publicN);
+	//		//super.privateN = 1;
+	//		super.defaultN = 1;
+	//		super.protectedN = 1;
+	//		super.publicN = 1;
+	//
+	//	}
+
+}
+public class MainClass {
+	public static void main(String[] args) {
+		
+		ArithmeticEx01 ari = new ArithmeticEx01();
+		
+		try {
+			ari.NoExceptionCase();
+		} catch (Exception e) {
+			System.out.println("¿¹¿Ü¾²");
+		}
+		
+		
+	}
+}

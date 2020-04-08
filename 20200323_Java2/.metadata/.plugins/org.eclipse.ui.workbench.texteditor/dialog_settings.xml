@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="&#x0D;&#x0A;&#x09;&#x09;&#x09;Floor[] tempFloor = new Floor[MAXFLOOR];&#x0D;&#x0A;&#x09;&#x09;&#x09;for(int f = 1 ; f &lt; MAXFLOOR ; ++f) {&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;randWay = rand.nextInt(UP + DOWN);&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;randPassenger = rand.nextInt(MAXPASSENGER);&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;tempFloor[f].setWay(rand.nextInt(UP + DOWN));&#x0D;&#x0A;&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;if(randWay != 0) {&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;tempFloor[f].watingPassenger(randPassenger);&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;isWaiting = YES;&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;}&#x0D;&#x0A;&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;floor[f].setWay(tempFloor[f].getWay() &amp; floor[f].getWay());&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;floor[f].watingPassenger(randPassenger);&#x0D;&#x0A;&#x09;&#x09;&#x09;}&#x0D;&#x0A;"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="&#x0D;&#x0A;&#x09;&#x09;&#x09;Floor[] tempFloor = new Floor[MAXFLOOR];&#x0D;&#x0A;&#x09;&#x09;&#x09;for(int f = 1 ; f &lt; MAXFLOOR ; ++f) {&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;randWay = rand.nextInt(UP + DOWN);&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;randPassenger = rand.nextInt(MAXPASSENGER);&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;tempFloor[f].setWay(rand.nextInt(UP + DOWN));&#x0D;&#x0A;&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;if(randWay != 0) {&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;tempFloor[f].watingPassenger(randPassenger);&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;isWaiting = YES;&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;}&#x0D;&#x0A;&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;floor[f].setWay(tempFloor[f].getWay() &amp; floor[f].getWay());&#x0D;&#x0A;&#x09;&#x09;&#x09;&#x09;floor[f].watingPassenger(randPassenger);&#x0D;&#x0A;&#x09;&#x09;&#x09;}&#x0D;&#x0A;"/>
+			<item value="floors"/>
+			<item value="package elavator.app;"/>
+			<item value="if(elevator[i].getPassenger() &gt;= MAXPASSENGER) continue;"/>
+			<item value="pw"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="343"/>
+		<item key="DIALOG_Y_ORIGIN" value="260"/>
+		<item key="DIALOG_WIDTH" value="288"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="248"/>
+		<item key="DIALOG_Y_ORIGIN" value="398"/>
+	</section>
+</section>

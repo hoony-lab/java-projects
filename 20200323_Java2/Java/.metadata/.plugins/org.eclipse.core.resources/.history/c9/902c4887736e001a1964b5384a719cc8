@@ -1,0 +1,60 @@
+package java04.application;
+
+import java.util.Iterator;
+
+public class Solution {
+	
+	int answer = 0;
+	
+	public static void dfs(ind_list, lists) {
+	    
+	    if(len(ind_list) == 3) {
+	        //print("ans : " + str(ind_list))
+	        answer += 1;
+	        return ;
+	    }
+	    
+	    for (int i = 0; i < array.length; i++) {
+			
+		
+	        //print("len(lucky_triple)  " + str(len(lucky_triple)))
+	        
+	        if len(ind_list) == 0:
+	            ind_list.append(i)
+	            dfs(ind_list, lists)
+	            ind_list.remove(i)
+	            
+	        elif i not in ind_list:
+	            if ind_list[len(ind_list) - 1] < i:
+	                if lists[i] % lists[ind_list[len(ind_list) - 1]] == 0:
+	                
+	                    ind_list.append(i)
+	                    dfs(ind_list, lists)
+	                    ind_list.remove(i)
+	    }
+
+	}
+	
+	public static int solution(int[] l) {
+		// Your code here
+
+		for (int i = 0; i < l.length - 2; i++) {
+
+			for (int j = i + 1; j < l.length - 1; j++) {
+				if(l[j] % l[i] != 0) continue;
+				for (int k = j + 1; k < l.length; k++) {
+					if(l[k] % l[j] != 0) continue;
+					//if(l[j] % l[i] == 0 && l[k] % l[j] == 0) {
+					answer++;
+				}
+			}
+		}
+		return answer;
+	}
+
+	public static void main(String[] args) {
+		int [] l = {1,2,3,4,5,6};
+
+		System.out.println(solution(l));
+	}
+}
