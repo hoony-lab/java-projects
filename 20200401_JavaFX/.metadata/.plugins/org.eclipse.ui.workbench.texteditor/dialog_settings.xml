@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="package btnDisable;"/>
+		<item key="selection" value="pwdTf"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="pwd"/>
+			<item value="id"/>
 			<item value="package btnDisable;"/>
 			<item value="logueCharBtn"/>
 			<item value="warCharBtn"/>
 			<item value="&#x09;&#x09;ImageButton warBtn = new ImageButton(IMGWAR, bSize * 4, bSize * 4);"/>
 		</list>
 		<list key="replacehistory">
+			<item value="pwdTf"/>
+			<item value="idTf"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
