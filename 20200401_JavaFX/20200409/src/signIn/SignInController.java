@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
-public class SignInController implements Initializable{
+public class SignInController implements Initializable {
 	@FXML CheckBox cb;
 	@FXML TextField idTf, pwdTf;
 	@FXML Button btn;
@@ -27,25 +27,8 @@ public class SignInController implements Initializable{
 		});
 	}
 
-	
-	
-	
-	public final static String encryptSHA512(String data) {
-        try {
-            MessageDigest sha = MessageDigest.getInstance("SHA-512");
-            sha.update(data.getBytes());
-            StringBuffer sb = new StringBuffer();
-            for (byte b : sha.digest()){ 
-                sb.append(Integer.toHexString(0xff & b));
-            }
-            return  sb.toString();
-        } catch (NoSuchAlgorithmException e) {
-           e.printStackTrace();
-            return null;
-        }
-    }
-	
-	
+	private ICommonService comServ;
+	comServ = new CommonService();
 	
 	private void checkEscapeText(TextField txt) {
 		txt.setText(txt.getText().replaceAll("[^a-zA-Z0-9_]", ""));

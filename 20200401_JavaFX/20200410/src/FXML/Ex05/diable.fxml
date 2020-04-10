@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane prefHeight="129.0" prefWidth="446.0" 
+xmlns="http://javafx.com/javafx/8" 
+xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="FXML.Ex05.Controller">
+   <top>
+      <Label fx:id="lbl" text="Button Disable Test." BorderPane.alignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </top>
+   <left>
+      <Button fx:id="btn1" disable="true" mnemonicParsing="false" text="Button1" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </left>
+   <right>
+      <Button fx:id="btn2" mnemonicParsing="false" text="Button2" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </right>
+</BorderPane>
