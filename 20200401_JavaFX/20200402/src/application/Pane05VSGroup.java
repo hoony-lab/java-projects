@@ -58,7 +58,7 @@ public class Pane05VSGroup extends Application{
 				break;
 
 			case RIGHT:
-				deltax=10;
+				deltax=10;	
 				break;
 
 			default:
