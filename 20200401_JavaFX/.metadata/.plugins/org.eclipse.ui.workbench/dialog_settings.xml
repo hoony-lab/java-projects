@@ -33,6 +33,10 @@
 	<section name="ZipFileImportWizard">
 		<item key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
 		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\자바취업반\javafx12_5.jar"/>
+			<item value="C:\자바취업반\javafx12_3.jar"/>
+			<item value="C:\자바취업반\Quiz.jar"/>
+			<item value="C:\자바취업반\javafx11.jar"/>
 			<item value="C:\자바취업반\javafx10_2.jar"/>
 			<item value="C:\자바취업반\javafx09.jar"/>
 			<item value="C:\자바취업반\javafx08.jar"/>

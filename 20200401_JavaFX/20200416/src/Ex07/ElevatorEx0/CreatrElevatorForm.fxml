@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="Ex07.ElevatorEx0.Controller">
+   <top>
+      <Pane prefHeight="64.0" prefWidth="354.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="77.0" layoutY="17.0" text="엘리베이터 만들기">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="127.0" minWidth="10.0" prefWidth="88.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="176.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="고층">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="저층" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="highTxtFld" GridPane.columnIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="lowTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </GridPane>
+   </center>
+   <right>
+      <Pane prefHeight="154.0" prefWidth="90.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button onAction="#CreateBtn" layoutX="15.0" layoutY="8.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="60.0" text="생성">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </right>
+   <bottom>
+      <Pane prefHeight="17.0" prefWidth="354.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="232.0" layoutY="1.0" text="Made by younki.cho" />
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>

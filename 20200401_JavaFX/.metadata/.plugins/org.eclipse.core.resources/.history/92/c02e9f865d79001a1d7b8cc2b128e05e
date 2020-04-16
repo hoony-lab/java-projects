@@ -1,5 +1,0 @@
-package login;
-
-public class MyDB {
-	HashMap<string, string> map = new HashMap<string, string>();
-}
