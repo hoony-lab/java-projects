@@ -1,0 +1,15 @@
+1. RootController에 있던 데이터 삭제
+2. FXML에 아래의 내용 추가
+
+<items>
+	<FXCollections fx:factory="observableArrayList">
+        <String fx:value="갤럭시S1"/>
+        <String fx:value="갤럭시S2"/>
+        <String fx:value="갤럭시S3"/>
+        <String fx:value="갤럭시S4"/>
+        <String fx:value="갤럭시S5"/>
+        <String fx:value="갤럭시S6"/>
+        <String fx:value="갤럭시S7"/>
+	</FXCollections>
+</items>
+

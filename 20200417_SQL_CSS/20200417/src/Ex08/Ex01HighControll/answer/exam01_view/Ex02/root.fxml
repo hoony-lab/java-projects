@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+<?import Ex08.Ex01HighControll.answer.exam01_view.Ex02.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory ?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" 
+fx:controller="Ex08.Ex01HighControll.answer.exam01_view.Ex02.RootController"
+	prefHeight="180.0" prefWidth="500.0" >
+   <children>
+      <Label layoutX="11.0" layoutY="9.0" text="ListView" />
+      <ListView fx:id="listView" layoutX="10.0" layoutY="30.0" prefHeight="100.0" prefWidth="100.0" >
+      	<items>
+      		<FXCollections fx:factory="observableArrayList">
+				<String fx:value="갤럭시S1"/>
+				<String fx:value="갤럭시S2"/>
+				<String fx:value="갤럭시S3"/>
+				<String fx:value="갤럭시S4"/>
+				<String fx:value="갤럭시S5"/>
+				<String fx:value="갤럭시S6"/>
+				<String fx:value="갤럭시S7"/>
+      		</FXCollections>
+      	</items>
+      </ListView>
+      <Label layoutX="125.0" layoutY="9.0" text="TableView" />
+      <TableView fx:id="tableView" layoutX="120.0" layoutY="30.0" prefHeight="100.0" prefWidth="290.0">
+        <columns>
+          <TableColumn prefWidth="100.0" text="스마트폰" >
+			<cellValueFactory>
+				<PropertyValueFactory property="smartPhone" />			   
+			</cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="100.0" text="이미지" >
+          	<cellValueFactory>
+				<PropertyValueFactory property="image" />
+            </cellValueFactory>
+          </TableColumn>
+        </columns>
+        <items>
+			<FXCollections fx:factory="observableArrayList">
+				<Phone smartPhone="갤럭시S1" image="phone01.png"/>
+				<Phone smartPhone="갤럭시S2" image="phone02.png"/>
+				<Phone smartPhone="갤럭시S3" image="phone03.png"/> 
+				<Phone smartPhone="갤럭시S4" image="phone04.png"/> 
+				<Phone smartPhone="갤럭시S5" image="phone05.png"/> 
+				<Phone smartPhone="갤럭시S6" image="phone06.png"/> 
+				<Phone smartPhone="갤럭시S7" image="phone07.png"/>
+			</FXCollections>
+      	</items>		   
+      </TableView>
+      <Label layoutX="425.0" layoutY="9.0" text="ImageView" />
+      <ImageView fx:id="imageView" fitHeight="100.0" fitWidth="60.0" layoutX="430.0" layoutY="30.0" preserveRatio="true" />
+      <Button layoutX="190.0" layoutY="145.0" onAction="#handleBtnOkAction" text="확인" />
+      <Button layoutX="260.0" layoutY="145.0" onAction="#handleBtnCancelAction" text="취소" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,24 @@
+<columns>
+  <TableColumn prefWidth="100.0" text="½º¸¶Æ®Æù" >
+	<cellValueFactory>
+		<PropertyValueFactory property="smartPhone" />			   
+	</cellValueFactory>
+  </TableColumn>
+  <TableColumn prefWidth="100.0" text="ÀÌ¹ÌÁö" >
+  	<cellValueFactory>
+		<PropertyValueFactory property="image" />
+    </cellValueFactory>
+  </TableColumn>
+</columns>
+<items>
+	<FXCollections fx:factory="observableArrayList">
+		<Phone smartPhone="°¶·°½ÃS1" image="phone01.png"/>
+		<Phone smartPhone="°¶·°½ÃS2" image="phone02.png"/>
+		<Phone smartPhone="°¶·°½ÃS3" image="phone03.png"/> 
+		<Phone smartPhone="°¶·°½ÃS4" image="phone04.png"/> 
+		<Phone smartPhone="°¶·°½ÃS5" image="phone05.png"/> 
+		<Phone smartPhone="°¶·°½ÃS6" image="phone06.png"/> 
+		<Phone smartPhone="°¶·°½ÃS7" image="phone07.png"/>
+	</FXCollections>
+</items>		   
+
