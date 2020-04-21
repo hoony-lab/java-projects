@@ -32,7 +32,7 @@ public class SelectTest {
 			
 			pStmt.setString(1, "stu_id");
 			pStmt.setString(2, "stu_");
-			pStmt.setInt(3, "stu_id");
+			//pStmt.setInt(3, "stu_id");
 			pStmt.setString(4, "stu_id");
 			
 			
