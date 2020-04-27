@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:controller="Webpage.Controller" fx:id="canvas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="midasLbl" prefHeight="100.0" prefWidth="261.0" style="-fx-font-family: ;" text="  MIDAS-HCM" textAlignment="CENTER" textFill="#070c94">
+               <font>
+                  <Font name="Gadugi" size="38.0" />
+               </font>
+            </Label>
+            <Label fx:id="homepageLbl" prefHeight="100.0" prefWidth="170.0" text="Homepage">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <Label fx:id="helloLbl" alignment="CENTER" prefHeight="81.0" prefWidth="515.0" text="홍길동님 안녕하세요!" textFill="#484848">
+               <font>
+                  <Font name="Sitka Banner" size="21.0" />
+               </font>
+               <padding>
+                  <Insets left="300.0" top="20.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Button fx:id="logoutBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #D9E5FF;" text="로그아웃">
+               <HBox.margin>
+                  <Insets left="55.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="commuteBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #D9E5FF;" text="출근">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <Accordion prefHeight="620.0" prefWidth="260.0" BorderPane.alignment="CENTER">
+        <panes>
+          <TitledPane animated="false" text="untitled 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="untitled 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="untitled 3">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </left>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin></ListView>
+         </center>
+         <bottom>
+            <Pagination prefHeight="60.0" prefWidth="1020.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <top>
+            <HBox prefHeight="60.0" prefWidth="1020.0" spacing="20.0">
+               <children>
+                  <TextField prefHeight="77.0" prefWidth="138.0" text="이름 검색" />
+                  <DatePicker prefHeight="106.0" prefWidth="163.0" />
+                  <ComboBox prefHeight="110.0" prefWidth="150.0" promptText="이름 순 (콤보박스)" />
+                  <ChoiceBox prefHeight="126.0" prefWidth="150.0" />
+                  <Pane prefHeight="40.0" prefWidth="166.0" />
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="엑셀 내보내기" />
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </top>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </BorderPane.margin></BorderPane>
+   </center>
+</BorderPane>

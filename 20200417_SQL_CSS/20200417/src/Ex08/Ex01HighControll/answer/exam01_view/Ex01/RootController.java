@@ -1,6 +1,7 @@
 package Ex08.Ex01HighControll.answer.exam01_view.Ex01;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
@@ -36,6 +37,8 @@ public class RootController implements Initializable {
 			}
 		});
 		
+		
+		
 		ObservableList phoneList = FXCollections.observableArrayList(
 		    new Phone("°¶·°½ÃS1", "phone01.png"),
 		    new Phone("°¶·°½ÃS2", "phone02.png"),
@@ -45,6 +48,9 @@ public class RootController implements Initializable {
 		    new Phone("°¶·°½ÃS6", "phone06.png"),
 		    new Phone("°¶·°½ÃS7", "phone07.png")
 		);
+		
+		ObservableList<Integer> ll = null;
+		ll.addAll(1, 2, 3);
 		
 		TableColumn tcSmartPhone = tableView.getColumns().get(0);
 		tcSmartPhone.setCellValueFactory(
