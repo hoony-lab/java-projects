@@ -55,7 +55,8 @@ public class SalaryController extends Controller implements Initializable{
 	public void ShowTableProc(ActionEvent e) {
 		Scene scene = ((Parent)e.getSource()).getScene();
 		
-		List<SalaryResult> salaryResultList = dbServ.SelectTable("SalaryResult");
+		String option = "";
+		List<SalaryResult> salaryResultList = dbServ.SelectTable("SalaryResult", option);
 		
 		comServ.ShowTableViewByList(scene, "#salaryMgmtTableView", salaryResultList);
 	}
@@ -65,7 +66,9 @@ public class SalaryController extends Controller implements Initializable{
 	public void ShowReportProc(ActionEvent e) {
 		Scene scene = ((Parent)e.getSource()).getScene();
 		
-		List<SalaryResult> salaryResultList = dbServ.SelectTable("SalaryResult");
+		String option = "";
+		
+		List<SalaryResult> salaryResultList = dbServ.SelectTable("SalaryResult", option);
 
 		//comServ.ShowLineChart(salServ.AddDataToLineChart(empList));
 	}
@@ -75,20 +78,27 @@ public class SalaryController extends Controller implements Initializable{
 	public void ShowStmtProc(ActionEvent e) {
 		Scene scene = ((Parent)e.getSource()).getScene();
 		
-		List<SalaryResult> salaryResultList = dbServ.SelectTable("SalaryResult");
+		//String id = comServ.getTextFieldInfo(root, "#mainPageIdTf");
+		String option = "WHERE id = \"cat\" AND month = 4";
 		
-		String id; // comServ.getTextFieldInfo(root, "#mainPageIdTf");
-
-		List<SalaryResult> lilililist = dbServ.getDataFromListById(salaryResultList, id);
+//		LocalDate date; // = comServ.getDatePickerInfo(root, "#salaryStmtDatePicker");
+//		
+//		for(SalaryResult salaryResult : lilililist) {
+//			if(date.getMonth().equals(salaryResult.getMonth())) {
+//				
+//				salServ.ShowSalaryStmt(root, "#salaryStmtTextTf", salaryResult);
+//				break;
+//			}
+//		}
 		
-		LocalDate date; // = comServ.getDatePickerInfo(root, "#salaryStmtDatePicker");
+		//List<SalaryResult> salaryResult = dbServ.SelectTable("SalaryResult", "WHERE id = " + id);
+		List<SalaryResult> salaryResultList = dbServ.SelectTable("SalaryResult", option);
+		if(salaryResultList.isEmpty())
+			System.out.println("sad,.fj kahsdlfkjabdlgknbadflkgjnsbdfkjbsdkljsdlfjknlkjfnv");
+		SalaryResult salaryResult = salaryResultList.get(0); 
+		System.out.println(salaryResultList.size());
 		
-		for(SalaryResult salaryResult : lilililist) {
-			if(date.getMonth().equals(salaryResult.getMonth())) {
-				TextField tf = (TextField)root.lookup("#salaryStmtTextTf");
-				tf.setText(salaryResult.getSalary());
-			}
-		}
+		salServ.ShowSalaryStmt(scene, "#salaryStmtTa", salaryResult);
 				
 
 		 

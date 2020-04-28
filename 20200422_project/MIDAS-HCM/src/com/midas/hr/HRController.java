@@ -29,18 +29,18 @@ public class HRController extends Controller implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		comServ = new CommonServiceImpl();
-		dbServ = new DBServiceImpl();
-		
-		List<Employee> employeelst = dbServ.getEmployeeList();
-		ObservableList tableList = FXCollections.observableArrayList();
-
-		for(Employee e : employeelst) {
-			tableList.add(new Employee(e.getnum(), e.getid(), e.getpw(), e.getname(), e.getbirth(), e.getgender(), e.getcategory(), e.getsalay(), e.getdepartment(), e.getposition(), e.getplace(), e.getphone(), e.getjoin(), e.getemail(), e.geteducation(), e.getaddress(), e.getimage()));
-
-			//System.out.println(e.getnum() + e.getid() + e.getpw() + e.getname() + e.getbirth() + e.getgender() + e.getcategory() + e.getsalay() + e.getdepartment() + e.getposition() + e.getplace() + e.getphone() + e.getjoin() + e.getemail() + e.geteducation() + e.getadrress() + e.getimage());
-		}
+//		comServ = new CommonServiceImpl();
+//		dbServ = new DBServiceImpl();
+//		
+//		List<Employee> employeelst = dbServ.getEmployeeList();
+//		ObservableList tableList = FXCollections.observableArrayList();
 //
+//		for(Employee e : employeelst) {
+//			tableList.add(new Employee(e.getnum(), e.getid(), e.getpw(), e.getname(), e.getbirth(), e.getgender(), e.getcategory(), e.getsalay(), e.getdepartment(), e.getposition(), e.getplace(), e.getphone(), e.getjoin(), e.getemail(), e.geteducation(), e.getaddress(), e.getimage()));
+//
+//			//System.out.println(e.getnum() + e.getid() + e.getpw() + e.getname() + e.getbirth() + e.getgender() + e.getcategory() + e.getsalay() + e.getdepartment() + e.getposition() + e.getplace() + e.getphone() + e.getjoin() + e.getemail() + e.geteducation() + e.getadrress() + e.getimage());
+//		}
+////
 //		numColumn.setCellValueFactory(cellData -> cellData.getValue().num());
 //		numColumn.setStyle("-fx-alignment: CENTER;");
 //

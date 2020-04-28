@@ -25,7 +25,8 @@ public class MidasMain extends Application{
 
 		
 		
-		borderPane.setLeft(manMenuScene);
+		borderPane.setLeft(empMenuScene);
+//		borderPane.setLeft(manMenuScene);
 		borderPane.setCenter(s);
 		primaryStage.setScene(new Scene(borderPane));
 		primaryStage.setTitle("MIDAS-HCM");

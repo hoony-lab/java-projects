@@ -66,7 +66,7 @@
          <content>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label fx:id="salaryStmtLbl" text="급여 명세서">
+                  <Label fx:id="salaryStmtLbl" onMouseClicked="#SalaryStmtView" text="급여 명세서">
                      <font>
                         <Font size="23.0" />
                      </font>

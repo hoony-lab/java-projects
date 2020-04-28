@@ -24,12 +24,12 @@ public interface DBService {
 	public void editEmployee(String id);
 	//public boolean hasId(String id);
 
-	public List getDataFromListById(List list, String id);
+	public List getDataFromListById(List list, String id, String whereOption);
 	
 	public void CreateTable(String table);
 	public void InsertTable(String table);
 	public void UpdateTable(String table);
-	public List SelectTable(String table);
+	public List SelectTable(String table, String option);
 	/*
 	 * public List<EmployeeHoliday> getEmployeeHolidayList();
 	public List<SalaryResult> getSalaryResultList();

@@ -26,6 +26,9 @@ public class DBServiceImpl implements DBService{
 	Connection conn;
 	CommonService comServ;
 
+	private void connect() {
+		
+	}
 
 	public DBServiceImpl() {
 		comServ = new CommonServiceImpl();
@@ -140,7 +143,7 @@ public class DBServiceImpl implements DBService{
 	}
 	
 	@Override
-	public List getDataFromListById(List list, String id) {
+	public List getDataFromListById(List list, String id, String option) {
 		List newList = new ArrayList<>();
 		
 		if(comServ.CheckClassType(list).equals("Employee")) {
@@ -242,12 +245,16 @@ public class DBServiceImpl implements DBService{
 	}
 
 	@Override
-	public List SelectTable(String table) {
+	public List SelectTable(String table, String whereOption) {
 		// SELECT
 
 		String sql = "SELECT * " + 
 				"FROM " + table;
-
+		
+		if(!whereOption.isEmpty()) 
+			sql += "\n" + whereOption;
+					
+		
 		List list = new ArrayList<>();
 
 		try {
@@ -256,8 +263,8 @@ public class DBServiceImpl implements DBService{
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			ResultSet rs = pStmt.executeQuery();
 
+			
 			if(table.equals("Employee")) {
-
 				while(rs.next()) {
 					Employee emp = new Employee();
 					
@@ -271,8 +278,8 @@ public class DBServiceImpl implements DBService{
 				}
 			}
 
+			
 			if(table.equals("SalaryResult")) {
-				//List<SalaryResult> salaryResultList = new ArrayList<SalaryResult>();
 				while(rs.next()) {
 					SalaryResult salaryResult = new SalaryResult();
 
@@ -286,6 +293,7 @@ public class DBServiceImpl implements DBService{
 				}
 			}
 
+			
 			if(table.equals("HolidayRequest")) {
 				while(rs.next()) {
 					HolidayRequest holidayRequest = new HolidayRequest();
@@ -316,6 +324,7 @@ public class DBServiceImpl implements DBService{
 					list.add(holidayRequest);
 				}
 			}
+			
 			
 			if(table.equals("TAAResult")) {
 				while(rs.next()) {

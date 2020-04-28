@@ -90,7 +90,7 @@ public class MainController extends Controller implements Initializable{
 		borderPane.setCenter(scene);
 	}
 
-	public void SalaryStmtView(ActionEvent e) {
+	public void SalaryStmtView(Event e) {
 		BorderPane borderPane = (BorderPane)getScene(e);
 		Parent scene = comServ.AddScene("/com/midas/salary/SalaryStmt.fxml");
 		borderPane.setCenter(scene);
