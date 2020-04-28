@@ -11,12 +11,12 @@ public class Schema {
 	static String SQL = "";
 
 	static void drop() {
-		SQL += "alter table member "
+		SQL = "alter table member "
 				+ "drop column ";
 	}
 	
 	static void delete() {
-		SQL += "delete from member";
+		SQL = "delete from member";
 	}
 
 	static void update() {

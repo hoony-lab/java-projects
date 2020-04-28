@@ -1,6 +1,7 @@
 package com.midas.db.service;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -15,7 +16,7 @@ public class SQLiteTest {
 					"SELECT * FROM student";
 			
 			ResultSet rs = stmt.executeQuery(sql);
-			
+
 			//System.out.println(rs.getRowId(1));
 			while(rs.next()) {
 				String res = "";

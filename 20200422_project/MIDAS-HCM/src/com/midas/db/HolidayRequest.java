@@ -23,6 +23,9 @@ public class HolidayRequest {
 //	private SimpleStringProperty image;
 	//
 	private SimpleStringProperty idx;
+	private SimpleStringProperty start;
+	private SimpleStringProperty end;
+	private SimpleStringProperty days;
 	private SimpleStringProperty text;
 	
 	
@@ -46,10 +49,13 @@ public class HolidayRequest {
 //		this.address = new SimpleStringProperty();
 //		this.image = new SimpleStringProperty();
 		this.idx = new SimpleStringProperty();
+		this.start = new SimpleStringProperty();
+		this.end = new SimpleStringProperty();
+		this.days = new SimpleStringProperty();
 		this.text = new SimpleStringProperty();
 	}
 	
-	public HolidayRequest(String num, String id, String idx, String text) {
+	public HolidayRequest(String num, String id, String idx, String start, String end, String days, String text) {
 		this.num = new SimpleStringProperty(num);
 		this.id = new SimpleStringProperty(id);
 //		this.pw = new SimpleStringProperty(pw);
@@ -68,6 +74,9 @@ public class HolidayRequest {
 //		this.address = new SimpleStringProperty(adrress);
 //		this.image = new SimpleStringProperty(image);
 		this.idx = new SimpleStringProperty(idx);
+		this.start = new SimpleStringProperty(start);
+		this.end = new SimpleStringProperty(end);
+		this.days = new SimpleStringProperty(days);
 		this.text = new SimpleStringProperty(text);
 	}
 
@@ -227,11 +236,38 @@ public class HolidayRequest {
 	public String getIdx() {
 		return idx.get();
 	}
-	public void setImage(String idx) {
+	public void setIdx(String idx) {
 		this.idx.set(idx);
 	}
-	public StringProperty Idx() {
+	public StringProperty idx() {
 		return idx;
+	}
+	public String getStart() {
+		return start.get();
+	}
+	public void setStart(String start) {
+		this.start.set(start);
+	}
+	public StringProperty start() {
+		return idx;
+	}
+	public String getEnd() {
+		return end.get();
+	}
+	public void setEnd(String end) {
+		this.end.set(end);
+	}
+	public StringProperty end() {
+		return end;
+	}
+	public String getDays() {
+		return days.get();
+	}
+	public void setDays(String days) {
+		this.days.set(days);
+	}
+	public StringProperty days() {
+		return days;
 	}
 	public String getText() {
 		return text.get();

@@ -1,12 +1,13 @@
 package com.midas.service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -25,12 +26,12 @@ public interface CommonService {
 	public Map<String, TextField> getTextFieldInfo(Parent membershipForm, String [] txtFldIdArr);
 	public boolean isEmpty(Map<String, TextField> txtFldMap, String [] txtFldIdArr);
 
-	public void ShowTableView(Parent root, TableView tableView);
+	public void ShowTableViewByList(Scene scene, String id, List list);
 	public void ShowLineChart(Parent root, LineChart lineChart);
 
 	public int CalculateRequestedHoliday(LocalDate d1, LocalDate d2);
 	
 	public void ExportExcel();
-	
+	public String CheckClassType(Object o);
 	
 }

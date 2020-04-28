@@ -3,12 +3,18 @@ package com.midas.service;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.midas.Controller;
 import com.midas.MainController;
+import com.midas.db.Employee;
+import com.midas.db.service.DB2ExcelExporter;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,13 +26,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+
 public class CommonServiceImpl implements CommonService{
-	
+	@FXML TableView<Employee> tableView;
+
 	@Override
 	public void WindowClose(ActionEvent event) {
 		Parent root = (Parent)event.getSource();
 		Stage stage = (Stage) root.getScene().getWindow();
 		stage.close();
+		tableView.lookup("#id");
 	}
 
 	@Override
@@ -39,16 +48,18 @@ public class CommonServiceImpl implements CommonService{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		// ?
 		MainController ctrler = loader.getController();
 		ctrler.setRoot(root);
-		
+
 		s.show();
-		
+
 		return root;
 	}
 	
+	//Stage s = new Stage();
+	//comServ.showWindow(s, "/com/midas/salary/SalaryMgmt.fxml", root);
 	@Override
 	public Parent showWindow(Stage s, String formPath, Parent parent) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(formPath));
@@ -59,17 +70,16 @@ public class CommonServiceImpl implements CommonService{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		// ?
-		
 		Controller ctrler = loader.getController();
 		ctrler.setRoot(root);
-		
+
 		s.show();
-		
+
 		return root;
 	}
-	
+
 	@Override
 	public Parent AddScene(String formPath) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(formPath));
@@ -81,7 +91,7 @@ public class CommonServiceImpl implements CommonService{
 		}
 		return root;
 	}
-	
+
 	@Override
 	public BorderPane AddScene2(String formPath) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(formPath));
@@ -93,13 +103,13 @@ public class CommonServiceImpl implements CommonService{
 		}
 		return root;
 	}
-	
-	
-	
+
+
+
 	@Override
 	public Map<String, TextField> getTextFieldInfo(Parent membershipForm, String[] txtFldIdArr) {
 		Map<String, TextField> txtFldMap = new HashMap<String, TextField>();
-		
+
 		for(String txtFldId : txtFldIdArr) {
 			TextField txtFld = (TextField)membershipForm.lookup(txtFldId);
 			txtFldMap.put(txtFldId, txtFld);
@@ -111,7 +121,7 @@ public class CommonServiceImpl implements CommonService{
 	public boolean isEmpty(Map<String, TextField> txtFldMap, String[] txtFldIdArr) {
 		for(String txtFldId : txtFldIdArr) {
 			TextField txtFld = txtFldMap.get(txtFldId);
-			
+
 			if(txtFld.getText().isEmpty()) {
 				txtFld.requestFocus();
 				return true;
@@ -146,49 +156,45 @@ public class CommonServiceImpl implements CommonService{
 
 	@Override
 	public void ExportExcel() {
-		// TODO Auto-generated method stub
-		
+		// DB2ExcelExporter exporter = new DB2ExcelExporter(); 
+		new DB2ExcelExporter();
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
-	public void ShowTableView(Parent root, TableView tableView) {
-		Map<String, TextField> txtFldMap = new HashMap<String, TextField>();
+	public void ShowTableViewByList(Scene scene, String id, List list) {
 		
-		for(String txtFldId : txtFldIdArr) {
-			TextField txtFld = (TextField)membershipForm.lookup(txtFldId);
-			txtFldMap.put(txtFldId, txtFld);
-		}
-		return txtFldMap;
-		
-		(TableView)root.lookup("#salaryMgmtTableView");
-		
-		
+		ObservableList tableList = FXCollections.observableArrayList();
+
+		tableList.addAll(list);
+		TableView<?> tableView = ((TableView)scene.lookup(id));
+		tableView.setItems(tableList);
 	}
 
 	@Override
 	public void ShowLineChart(Parent root, LineChart lineChart) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 
 	@Override
 	public int CalculateRequestedHoliday(LocalDate d1, LocalDate d2) {
 
-//		LocalDate ld = null;
-//		// datePicker data
-//		LocalDate date = ld.now();
-//		int m1 = Integer.valueOf(date.toString().substring(0, 4));
-//		int w1 = Integer.valueOf(date.toString().substring(5, 5 + 2));
-//		int d1 = Integer.valueOf(date.toString().substring(8, 8 + 2));
-//		
-//		System.out.println(m1);
-//		System.out.println(w1);
-//		System.out.println(d1);
-//		
-//		int m1 = Integer.valueOf(date.substring(0, 4));
-//		int w1 = Integer.valueOf(date.substring(5, 5 + 2));
-//		int d1 = Integer.valueOf(date.substring(8, 8 + 2));
+		//		LocalDate ld = null;
+		//		// datePicker data
+		//		LocalDate date = ld.now();
+		//		int m1 = Integer.valueOf(date.toString().substring(0, 4));
+		//		int w1 = Integer.valueOf(date.toString().substring(5, 5 + 2));
+		//		int d1 = Integer.valueOf(date.toString().substring(8, 8 + 2));
+		//		
+		//		System.out.println(m1);
+		//		System.out.println(w1);
+		//		System.out.println(d1);
+		//		
+		//		int m1 = Integer.valueOf(date.substring(0, 4));
+		//		int w1 = Integer.valueOf(date.substring(5, 5 + 2));
+		//		int d1 = Integer.valueOf(date.substring(8, 8 + 2));
 		//		
 		//		// 날짜 날짜 사이
 
@@ -198,22 +204,39 @@ public class CommonServiceImpl implements CommonService{
 			LocalDateTime localdatetime = LocalDateTime.parse(date);
 		// 결과 : parse 성공
 		 */
-		
+
 		long days = d2.toEpochDay() - d1.toEpochDay() + 1;
 		System.out.print("요청한 일 수 : \t\t");
 		System.out.println(days);
-		
+
 		int requestHoliday = 0;
-		
+
 		for(LocalDate day = d1 ; day.isBefore(d2.plusDays(1)) ; day = day.plusDays(1)) {
 			if(day.getDayOfWeek().name() == "SATURDAY" || day.getDayOfWeek().name() == "SUNDAY") continue;
 			requestHoliday++;
 		}
-		
+
 		System.out.print("휴가 쓸 수 있는 평일 날 : \t");
 		return requestHoliday;
 	}
 
-
 	
+	
+	// var implementation
+	@Override
+	public String CheckClassType(Object o) {
+		
+		String className = o.getClass().getName();
+		
+		if(className.contains("TAAResult")) 		return "TAAResult";
+		if(className.contains("TAA")) 				return "TAA";
+		if(className.contains("SalaryResult")) 		return "SalaryResult";
+		if(className.contains("HolidayRequest"))	return "HolidayRequest";
+		if(className.contains("EmployeeHoliday")) 	return "EmployeeHoliday";
+		if(className.contains("Employee")) 			return "Employee";
+
+		return className;
+	}
+
+
 }

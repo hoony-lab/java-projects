@@ -2,9 +2,9 @@ package com.midas;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 
+import com.midas.db.Employee;
 import com.midas.service.CommonService;
 import com.midas.service.CommonServiceImpl;
 
@@ -45,10 +45,13 @@ public class MainController extends Controller implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		comServ = new CommonServiceImpl();
 		
-		LocalDate date1 = LocalDate.of(2020, 4, 27);
-		LocalDate date2 = LocalDate.of(2020, 5, 04);
 		
-		System.out.println(comServ.CalculateRequestedHoliday(date1, date2));
+//		LocalDate date1 = LocalDate.of(2020, 4, 27);
+//		LocalDate date2 = LocalDate.of(2020, 5, 04);
+//		
+//		System.out.println(comServ.CalculateRequestedHoliday(date1, date2));
+		
+
 	}
 
 	public void HomepageView(ActionEvent e) {
@@ -83,7 +86,7 @@ public class MainController extends Controller implements Initializable{
 
 	public void SalaryReportView(Event e) {
 		BorderPane borderPane = (BorderPane)getScene(e);
-		BorderPane scene = comServ.AddScene2("/com/midas/salary/SalaryReport.fxml");
+		Parent scene = comServ.AddScene("/com/midas/salary/SalaryReport.fxml");
 		borderPane.setCenter(scene);
 	}
 

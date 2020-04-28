@@ -3,7 +3,7 @@ package com.midas.db;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class EmployeeTAA {
+public class SalaryResult {
 	private SimpleStringProperty num;
 	private SimpleStringProperty id;
 //	private SimpleStringProperty pw;
@@ -22,11 +22,11 @@ public class EmployeeTAA {
 //	private SimpleStringProperty address;
 //	private SimpleStringProperty image;
 	//
-	private SimpleStringProperty state;
-	private SimpleStringProperty date;
-	private SimpleStringProperty time;
-	
-	public EmployeeTAA() {
+	private SimpleStringProperty year;
+	private SimpleStringProperty month;
+	private SimpleStringProperty salary;
+
+	public SalaryResult() {
 		this.num = new SimpleStringProperty();
 		this.id = new SimpleStringProperty();
 //		this.pw = new SimpleStringProperty();
@@ -44,12 +44,12 @@ public class EmployeeTAA {
 //		this.education = new SimpleStringProperty();
 //		this.address = new SimpleStringProperty();
 //		this.image = new SimpleStringProperty();
-		this.state = new SimpleStringProperty();
-		this.date = new SimpleStringProperty();
-		this.time = new SimpleStringProperty();
+		this.year = new SimpleStringProperty();
+		this.month = new SimpleStringProperty();
+		this.salary = new SimpleStringProperty();
 	}
 	
-	public EmployeeTAA(String num, String id, String state, String date, String time) {
+	public SalaryResult(String num, String id, String year, String month, String salary) {
 		this.num = new SimpleStringProperty(num);
 		this.id = new SimpleStringProperty(id);
 //		this.pw = new SimpleStringProperty(pw);
@@ -67,9 +67,9 @@ public class EmployeeTAA {
 //		this.education = new SimpleStringProperty(education);
 //		this.address = new SimpleStringProperty(adrress);
 //		this.image = new SimpleStringProperty(image);
-		this.state = new SimpleStringProperty(state);
-		this.date = new SimpleStringProperty(date);
-		this.time = new SimpleStringProperty(time);
+		this.year = new SimpleStringProperty(year);
+		this.month = new SimpleStringProperty(month);
+		this.salary = new SimpleStringProperty(salary);
 	}
 
 	public String getNum() {
@@ -225,31 +225,31 @@ public class EmployeeTAA {
 //	public StringProperty Image() {
 //		return image;
 //	}
-	public String getState() {
-		return num.get();
+	public String getYear() {
+		return year.get();
 	}
-	public void setState(String state) {
-		this.state.set(state);
+	public void setYear(String year) {
+		this.year.set(year);
 	}
-	public StringProperty state() {
-		return state;
+	public StringProperty year() {
+		return year;
 	}
-	public String getDate() {
-		return date.get();
+	public String getMonth() {
+		return month.get();
 	}
-	public void setDate(String date) {
-		this.date.set(date);
+	public void setMonth(String month) {
+		this.month.set(month);
 	}
-	public StringProperty date() {
-		return date;
+	public StringProperty month() {
+		return month;
 	}
-	public String getTime() {
-		return time.get();
+	public String getSalary() {
+		return salary.get();
 	}
-	public void setTime(String time) {
-		this.time.set(time);
+	public void setSalary(String salary) {
+		this.salary.set(salary);
 	}
-	public StringProperty time() {
-		return time;
+	public StringProperty salary() {
+		return salary;
 	}
 }

@@ -5,7 +5,7 @@ package com.midas.db.service;//package com.midas.db;//import java.io.FileOutpu
 // * @author Nam Ha Minh
 // * (C) Copyright codejava.net
 // */
-//public class DB2ExcelExporter {
+public class DB2ExcelExporter {
 //
 //	public static void main(String[] args) {
 //		new DB2ExcelExporter().export();
@@ -112,4 +112,4 @@ package com.midas.db.service;//package com.midas.db;//import java.io.FileOutpu
 //		}
 //	}
 //
-//}
+}

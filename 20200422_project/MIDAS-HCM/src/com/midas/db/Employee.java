@@ -1,5 +1,11 @@
 package com.midas.db;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -22,6 +28,9 @@ public class Employee {
 	private SimpleStringProperty address;
 	private SimpleStringProperty image;
 	//
+	private SimpleStringProperty holiday;
+	private StringProperty[] value;
+	
 	public Employee() {
 		this.num = new SimpleStringProperty();
 		this.id = new SimpleStringProperty();
@@ -40,9 +49,11 @@ public class Employee {
 		this.education = new SimpleStringProperty();
 		this.address = new SimpleStringProperty();
 		this.image = new SimpleStringProperty();
+		this.holiday = new SimpleStringProperty();
+		this.value = new StringProperty[18];
 	}
 	
-	public Employee(String num, String id, String pw, String name, String birth, String gender, String category, String salay, String department, String position, String place, String phone, String join, String email, String education, String adrress, String image) {
+	public Employee(String num, String id, String pw, String name, String birth, String gender, String category, String salay, String department, String position, String place, String phone, String join, String email, String education, String adrress, String image, String holiday) {
 		this.num = new SimpleStringProperty(num);
 		this.id = new SimpleStringProperty(id);
 		this.pw = new SimpleStringProperty(pw);
@@ -60,6 +71,10 @@ public class Employee {
 		this.education = new SimpleStringProperty(education);
 		this.address = new SimpleStringProperty(adrress);
 		this.image = new SimpleStringProperty(image);
+		this.holiday = new SimpleStringProperty(holiday);
+		this.value = new StringProperty[]{
+			num(), id(), pw(), name(), birth(), gender(), category(), salary(), department(),
+			position(), place(), phone(), join(), email(), education(), address(), image()};
 	}
 
 	public String getNum() {
@@ -212,7 +227,19 @@ public class Employee {
 	public void setImage(String image) {
 		this.image.set(image);
 	}
-	public StringProperty Image() {
+	public StringProperty image() {
 		return image;
+	}
+	public String getHoliday() {
+		return holiday.get();
+	}
+	public void setHoliday(String holiday) {
+		this.holiday.set(holiday);
+	}
+	public StringProperty holiday() {
+		return holiday;
+	}
+	public StringProperty[] getValue() {
+		return value;
 	}
 }
