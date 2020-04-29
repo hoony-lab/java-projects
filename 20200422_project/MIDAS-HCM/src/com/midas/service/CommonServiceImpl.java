@@ -9,6 +9,7 @@ import java.util.Map;
 import com.midas.Controller;
 import com.midas.MainController;
 import com.midas.db.Employee;
+import com.midas.db.SalaryResult;
 import com.midas.db.service.DB2ExcelExporter;
 
 import javafx.collections.FXCollections;
@@ -18,18 +19,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
 public class CommonServiceImpl implements CommonService{
 	@FXML TableView<Employee> tableView;
 
+	
+	
 	@Override
 	public void WindowClose(ActionEvent event) {
 		Parent root = (Parent)event.getSource();
@@ -70,7 +78,7 @@ public class CommonServiceImpl implements CommonService{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
 		// ?
 		Controller ctrler = loader.getController();
 		ctrler.setRoot(root);
@@ -93,9 +101,9 @@ public class CommonServiceImpl implements CommonService{
 	}
 
 	@Override
-	public BorderPane AddScene2(String formPath) {
+	public Parent AddScene(String formPath, Parent parent) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(formPath));
-		BorderPane root = null;
+		Parent root = parent;
 		try {
 			root = loader.load();
 		} catch (IOException e) {
@@ -163,18 +171,105 @@ public class CommonServiceImpl implements CommonService{
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void ShowTableViewByList(Scene scene, String id, List list) {
+		TableView<?> tableView = (TableView)scene.lookup(id);
 		
 		ObservableList tableList = FXCollections.observableArrayList();
 
 		tableList.addAll(list);
-		TableView<?> tableView = ((TableView)scene.lookup(id));
+		
 		tableView.setItems(tableList);
 	}
 
 	@Override
-	public void ShowLineChart(Parent root, LineChart lineChart) {
-		// TODO Auto-generated method stub
+	public void ShowLineChartByList(Scene scene, String _id, List _list) {
+		LineChart<String, Number> lineChart = (LineChart)scene.lookup(_id);
+		lineChart.getData().clear();
+		Map<String, Integer> name = new HashMap<String, Integer>();
+		
+//		if(comServ.getComboBoxInfo().equals("주간")) {}
+//		if(comServ.getComboBoxInfo().equals("월간")) {}
+//		if(comServ.getComboBoxInfo().equals("연간")) {}
 
+		CategoryAxis xAxis = new CategoryAxis();	xAxis.setLabel("날짜");
+		NumberAxis yAxis = new NumberAxis();		yAxis.setLabel("급여 (만원)");
+
+		XYChart.Series<String, Number>[] series = new XYChart.Series[5];
+		if(CheckClassType(_list).equals("SalaryResult")) {
+			System.out.println("Checking LineChart by SalaryResult ");
+			List<SalaryResult> list = _list;
+
+			for(SalaryResult o : list) {
+				String id = o.getId();
+				if(!name.containsKey(id)) {
+					name.put(id, name.size());
+					series[name.get(id)] = new XYChart.Series<String, Number>();
+					series[name.get(id)].setName(id);
+				}
+				series[name.get(id)].getData().add(new XYChart.Data(
+						String.valueOf(o.getYear() + "." + o.getMonth()), Integer.valueOf(o.getSalary())));
+			}
+		}
+		
+		for(int i = 0 ; i < name.size() ; ++i)
+			lineChart.getData().add(series[i]);
+		
+		//ObservableList chartList = FXCollections.observableArrayList();
+			
+		//chartList.addAll(series[0], series[1]);
+		//lineChart.getData().addAll(chartList);
+		
+		
+		
+		
+
+		
+		
+//		
+//		
+//		BorderPane borderPane = (BorderPane)getScene(e);
+//		
+////		FXMLLoader loader = new FXMLLoader(getClass().getResource(formPath));
+////		Parent root = null;
+////		try {
+////			root = loader.load();
+////		} catch (IOException e) {
+////			e.printStackTrace();
+////		}
+////		return root;
+////		
+//		Parent roots = new Pane();
+//		Parent sceness = AddScene("/com/midas/salary/SalaryReportLineChart.fxml");
+//		borderPane.setCenter(scenes);
+//		//Scene scene = new Scene(lineChart);
+//		
+//		
+//		
+//		
+//		
+//		
+//		BorderPane borderPane = (BorderPane)root;
+//		borderPane.setCenter(pane);
+////		
+////		public void SalaryStmtView(Event e) {
+////			BorderPane borderPane = (BorderPane)getScene(e);
+////			Parent scene = comServ.AddScene("/com/midas/salary/SalaryStmt.fxml");
+////			borderPane.setCenter(scene);
+////		}
+////
+////		
+////		
+////		// if(dbServ.getEmployee(id).getCategory() == 1)
+////		Parent empMenuScene = comServ.AddScene("/com/midas/Employee.fxml");
+////		// else
+////		Parent manMenuScene = comServ.AddScene("/com/midas/Manager.fxml");
+////		
+////		Parent s = comServ.AddScene("/com/midas/salary/SalaryMgmt.fxml");
+////
+////		
+////		
+////		//borderPane.setLeft(empMenuScene);
+////		borderPane.setLeft(manMenuScene);
+////		borderPane.setCenter(s);		
 	}
 
 
@@ -224,9 +319,9 @@ public class CommonServiceImpl implements CommonService{
 	
 	// var implementation
 	@Override
-	public String CheckClassType(Object o) {
-		
-		String className = o.getClass().getName();
+	public String CheckClassType(List o) {
+	
+		String className = o.get(0).getClass().getName();
 		
 		if(className.contains("TAAResult")) 		return "TAAResult";
 		if(className.contains("TAA")) 				return "TAA";

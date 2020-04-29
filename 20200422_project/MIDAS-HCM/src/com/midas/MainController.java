@@ -85,6 +85,7 @@ public class MainController extends Controller implements Initializable{
 	}
 
 	public void SalaryReportView(Event e) {
+
 		BorderPane borderPane = (BorderPane)getScene(e);
 		Parent scene = comServ.AddScene("/com/midas/salary/SalaryReport.fxml");
 		borderPane.setCenter(scene);
@@ -145,8 +146,8 @@ public class MainController extends Controller implements Initializable{
 
 	public void HolidayModifyView(Event e) {
 		BorderPane borderPane = (BorderPane)getScene(e);
-		root = comServ.AddScene("/com/midas/taa/HolidayModify.fxml");
-		borderPane.setCenter(root);
+		Parent scene= comServ.AddScene("/com/midas/taa/HolidayModify.fxml");
+		borderPane.setCenter(scene);
 	}
 
 }

@@ -21,28 +21,26 @@ import com.midas.service.CommonServiceImpl;
 public class DBServiceImpl implements DBService{
 	final String DRIVER = "org.sqlite.JDBC";
 	final String DB = "jdbc:sqlite:C:/자바취업반/MIDAS_Project.db";
+	//Connection conn;
 
 	List<Employee> employeeList = new ArrayList<Employee>();
-	Connection conn;
-	CommonService comServ;
+	CommonService comServ = new CommonServiceImpl();
 
-	private void connect() {
-		
-	}
-
-	public DBServiceImpl() {
-		comServ = new CommonServiceImpl();
-		try {
-			Class.forName(DRIVER);
-			conn = DriverManager.getConnection(DB);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	//	public DBServiceImpl() {
+	//		comServ = new CommonServiceImpl();
+	//		
+	//		try {
+	//			Connection conn;
+	//			Class.forName(DRIVER);
+	//			conn = DriverManager.getConnection(DB);
+	//		} catch (ClassNotFoundException e) {
+	//			// TODO Auto-generated catch block
+	//			e.printStackTrace();
+	//		} catch (SQLException e) {
+	//			// TODO Auto-generated catch block
+	//			e.printStackTrace();
+	//		}
+	//	}
 
 
 	@Override
@@ -60,6 +58,10 @@ public class DBServiceImpl implements DBService{
 
 		int result = 0;
 		try {
+			Connection conn;
+			Class.forName(DRIVER);
+			conn = DriverManager.getConnection(DB);
+
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, id);
 			pStmt.setString(2, pw);
@@ -71,7 +73,7 @@ public class DBServiceImpl implements DBService{
 
 
 
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -93,6 +95,10 @@ public class DBServiceImpl implements DBService{
 				"FROM Member";
 
 		try {
+			Connection conn;
+			Class.forName(DRIVER);
+			conn = DriverManager.getConnection(DB);
+			
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 
@@ -122,7 +128,7 @@ public class DBServiceImpl implements DBService{
 			}
 			stmt.close();
 			conn.close();
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			return null;
 		}
 
@@ -141,11 +147,11 @@ public class DBServiceImpl implements DBService{
 
 		return null;
 	}
-	
+
 	@Override
 	public List getDataFromListById(List list, String id, String option) {
 		List newList = new ArrayList<>();
-		
+
 		if(comServ.CheckClassType(list).equals("Employee")) {
 			List<Employee> _list = list;
 			for(Employee o : _list) 
@@ -250,24 +256,28 @@ public class DBServiceImpl implements DBService{
 
 		String sql = "SELECT * " + 
 				"FROM " + table;
-		
+
 		if(!whereOption.isEmpty()) 
 			sql += "\n" + whereOption;
-					
-		
+
+
 		List list = new ArrayList<>();
 
 		try {
+			Connection conn;
+			Class.forName(DRIVER);
+			conn = DriverManager.getConnection(DB);
+			
 			//			Statement stmt = conn.createStatement();
 			//			ResultSet rs = stmt.executeQuery(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			ResultSet rs = pStmt.executeQuery();
 
-			
+
 			if(table.equals("Employee")) {
 				while(rs.next()) {
 					Employee emp = new Employee();
-					
+
 					emp.setNum(rs.getString("num"));
 					emp.setId(rs.getString("id"));
 					emp.setPw(rs.getString("pw"));
@@ -278,7 +288,7 @@ public class DBServiceImpl implements DBService{
 				}
 			}
 
-			
+
 			if(table.equals("SalaryResult")) {
 				while(rs.next()) {
 					SalaryResult salaryResult = new SalaryResult();
@@ -293,7 +303,7 @@ public class DBServiceImpl implements DBService{
 				}
 			}
 
-			
+
 			if(table.equals("HolidayRequest")) {
 				while(rs.next()) {
 					HolidayRequest holidayRequest = new HolidayRequest();
@@ -324,8 +334,8 @@ public class DBServiceImpl implements DBService{
 					list.add(holidayRequest);
 				}
 			}
-			
-			
+
+
 			if(table.equals("TAAResult")) {
 				while(rs.next()) {
 					TAAResult empTAAResult = new TAAResult();
@@ -390,7 +400,7 @@ public class DBServiceImpl implements DBService{
 
 			return list;
 
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
