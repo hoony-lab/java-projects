@@ -74,9 +74,11 @@ public class SalaryController extends Controller implements Initializable{
 		
 		//Parent sss = ((Parent)e.getSource()).getParent().getParent().getParent().getParent();
 		//TextField tf = (TextField)scene.lookup("#salaryMgmtNameTextField");
-		
-		//salaryMgmtNameTextField.setText("asdfasdf");
-		//System.out.println(salaryMgmtNameTextField.getText());
+//		Parent root = null;
+//		TextField tf1 = (TextField)root.lookup("#salaryMgmtNameTextField");
+//		
+//		tf1.setText("¤»¤»");
+//		System.out.println(tf1.getText());
 	}
 
 	public void SalaryReportExportToExcel() {
