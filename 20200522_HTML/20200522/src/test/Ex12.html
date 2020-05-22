@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+ document는 웹브라우저를 의마하며 점(.)은 내부 속성을 의미한다. 
+ 
+ -->
+
+<html>
+<head>
+	<!-- UTF-8 or EUC-KR -->
+	<meta charset="EUC-KR">
+</head>
+<body>
+	<script>
+
+		var txt = prompt('please type your name');
+		var res ="";
+		
+		res += "<hr><br>" + txt + "단<br><hr><br>";
+
+		for (var i = 1; i < 10; i++) {
+			res += txt + "*" + i + "=" + txt*i + "<br>";
+		}
+		document.write(res);
+		
+		
+	</script>
+</body>
+</html>

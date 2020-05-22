@@ -1,0 +1,61 @@
+<!--
+div의 class는 각 DIV태그를 그룹으로 구분짓기 위해 사용되는 것이다.
+추후 CSS를 활용하면 화면출력부인 HTML과 style 부분을 구분짓어 사용하게 된다.
+-->
+
+
+<!DOCTYPE html>
+<html>
+<meta charset="EUC-KR">
+
+<head>
+	<script>
+		function gugudan() {
+			var dan = prompt("구구단의 단을 입력하세요 !")
+			var res = makeTitle();
+			res += makeGugudan(dan);
+
+			document.write(res);
+		}
+
+		function makeTitle() {
+			var writeTxt = "<center><H3>";
+			writeTxt += "===============================<br/>";
+			writeTxt += "gugudan<br/>";
+			writeTxt += "===============================<br/>";
+			writeTxt += "</H3>";
+			writeTxt += "<p>";
+			return writeTxt;
+		}
+
+		function makeGugudan(dan) {
+			//table과 같은 기능을 표현하기 위해 style의 display를 table로 표현
+			var writeTxt = "<div class='divTbl' style='display: table;width:50%'>";
+
+			// for (var dan = 2; dan < 10; dan++) {
+			// 	if (dan % 4 == 2)
+			//tr과 같은 기능을 표현하기 위해 display를 table-row로 표현
+			writeTxt += "<div class='divRow' style='display:table-row;'>";
+			//td와 같은 기능을 표현하기 위해 display를 table-cell로 표현
+			writeTxt += "<div class='divCell' style='display: table-cell;width:10%;align:center'><hr width=90% /><h4>" + dan + "dan</h4><hr width=90% />";
+			for (var inc = 1; inc < 10; inc++)
+				writeTxt += (dan + 'x' + inc + '=' + dan * inc + '<br/>');
+
+			writeTxt += "</div>";	/// td close
+
+			// if (dan % 4 == 1)
+				writeTxt += "</div>";	/// tr close
+			// }
+			writeTxt += "</div></center>";	/// table close
+			return writeTxt;
+		}
+		// document.write(writeTxt);
+	</script>
+</head>
+
+<body>
+	<script>gugudan()</script>
+
+</body>
+
+</html>

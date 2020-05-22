@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--
+ document는 웹브라우저를 의마하며 점(.)은 내부 속성을 의미한다. 
+ 
+ -->
+
+<html>
+<head>
+
+</head>
+<body>
+	<h3>
+		=====================<br>
+		gugudan<br>
+		=====================<br>
+	</h3>
+	<script type="text/javascript">
+	document.write("<br><br>");
+	
+	
+	
+	document.write("<table border='1'>");
+		var num = 2;
+		for(var loop = 0 ; loop < 2 ; ++loop){
+			document.write("<tr>");
+			for(var i = 0 ; i < 4 ; ++i){
+				document.write("<td>" + num++ + " dan</td>");
+			}
+			document.write("</tr>");
+		}
+	document.write("</table>");
+	
+	// tr -> display를 table-row로 표현
+	// <div class='divRow' style='display:table-row;'>
+	// td -> display를 table-cell로 표현
+	// <div class='divCell' style='display:table-cell;'>
+	
+	var t = "";
+	t += "<center><div class='divTbl' style='display:table; width:50%'>";
+	var num = 2;
+	for(var loop = 0 ; loop < 2 ; ++loop){
+		t += "<div class='divRow' style='display:table-row;'>";
+		for(var i = 0 ; i < 4 ; ++i){
+			t += "<div class='divCell' style='display:table-cell; width:10%; align:center'><hr><h4>" + num;
+			t += " dan</h4><hr>";
+
+			for(var j = 2; j < 10 ; ++j){
+				t += num + 'x' + j + '=' + num*j + "<br>";
+			}
+			num++;
+		}
+		t += "</div></div>";
+	}
+	t += "</div></center>";
+	document.write(t);
+
+
+
+
+
+
+
+
+		var t = "";
+	t += "<table border='1' bordercolor=red>";
+	var num = 2;
+	for(var loop = 0 ; loop < 2 ; ++loop){
+		t += "<tr align='center'>";
+		for(var i = 0 ; i < 4 ; ++i){
+			t += "<td><hr><h4>" + num + " dan</h4><hr>";
+
+			for(var j = 2; j < 10 ; ++j){
+				t += num + 'x' + j + '=' + num*j + "<br>";
+			}
+			num++;
+		}
+		t += "</td></tr>";
+	}
+	t += "</table>";
+	document.write(t);
+	
+	
+	
+	
+	
+	/*
+	
+	var htmlTag = "<center><H3>";
+   htmlTag += "===============================<br/>";
+   htmlTag += "gugudan<br/>";
+   htmlTag += "===============================<br/>";
+   htmlTag += "</H3>";
+   htmlTag += "<br/>";
+
+   //table을 웹브라우져 기준으로 가로 크기 30%만큼 지정했다.
+   htmlTag += "<table width=30%>";
+
+   for (var dan = 2; dan < 10; dan++) {
+      //기존 코드에서 2와 6인 경우 <tr>태그가 추가됨으로
+      //다음과 같이 ||연산을 활용
+      if (dan == 2 || dan == 6)
+         htmlTag += "<tr>";
+      htmlTag += "<td>";
+      
+      htmlTag += dan + "dan<br/><br/>";
+      for (var inc = 1; inc < 10; inc++) {
+         htmlTag += (dan + 'x' + inc + '=' + dan * inc + '<br/>');
+      }
+
+      htmlTag += "</td>";
+      //기존 코드에서 5와 9인 경우 </tr>태그가 추가됨으로
+      //다음과 같이 ||연산을 활용
+      if (dan == 5 || dan == 9)
+         htmlTag += "</tr>";
+   }
+
+   htmlTag += "</table></center>";
+   document.write(htmlTag);
+	
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	document.write("<br><br>");
+		for(var i=2;i<10;++i){
+			for(var j=2;j<10;++j){
+				document.write(i + 'x' + j + '=' + i*j + "<br>");
+			}
+		}
+		document.write("<br><br>");
+		
+		
+	</script>
+
+</body>
+</html>
