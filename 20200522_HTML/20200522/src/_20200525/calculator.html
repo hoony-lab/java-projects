@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>calc</title>
+	<meta charset="utf-8">
+	<style>
+		table {
+			width: 320px;
+			background-color: saddlebrown;
+			border: 10px;
+			border-color: brown;
+		}
+
+		th {
+			height: 80px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		th>input {
+			width: 100%;
+			border: none;
+			text-align: right;
+			font-size: 48px;
+		}
+
+		td>input[type="button"] {
+			width: 100%;
+			height: 60px;
+			/* text-align: right; */
+			font-size: 36px;
+			color: red;
+		}
+
+		td>input[type="button"]:hover {
+			background: blue;
+		}
+
+		td>input[type="button"]:active {
+			background: violet;
+		}
+	</style>
+
+	<center>
+		<table>
+			<tr>
+				<th colspan="4"><input type="text" id="result" value="0"></th>
+			</tr>
+			<tr>
+				<td><input type="button" value="7"></td>
+				<td><input type="button" value="8"></td>
+				<td><input type="button" value="9"></td>
+				<td><input type="button" value="+"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="4"></td>
+				<td><input type="button" value="5"></td>
+				<td><input type="button" value="6"></td>
+				<td><input type="button" value="-"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="1"></td>
+				<td><input type="button" value="2"></td>
+				<td><input type="button" value="3"></td>
+				<td><input type="button" value="*"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" value="0"></td>
+				<td><input type="button" value="%"></td>
+				<td><input type="button" value="/"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="c"></td>
+				<td><input type="button" value="<"></td>
+				<td colspan="2"><input type="button" value="="></td>
+			</tr>
+		</table>
+	</center>
+
+
+	<script type="text/javascript">
+		function fuck() {
+			let btnList = document.getElementsByTagName("input");
+
+
+			console.log(btnList);
+			console.log(btnList[0]);
+			console.log(btnList[1]);
+			for (let i = 0; i < btnList.length; ++i) {
+				btnList[i].addEventListener("click", you);
+
+				//console.log(aa[i].getAttribute('value'));
+			}
+
+
+		}
+
+		function you(e) {
+			let res = document.getElementById("result");
+
+			if (this.getAttribute('value') == '<'){
+				res.value = res.value.substr(0, res.value.length - 1);
+				if(res.value == '') res.value = '0';
+			}
+			else if (this.getAttribute('value') == 'c' || res.value == '')
+				res.value = 0;
+			
+			else if(this.value == '=')
+				result.value = eval(result.value);
+			else{
+				if(res.value == '0') res.value = '';
+				res.value += this.getAttribute('value');
+			}
+			
+		}
+
+	</script>
+</head>
+
+<body onload="script:fuck()">
+	<!-- <script>fuck();</script> -->
+</body>
+
+</html>

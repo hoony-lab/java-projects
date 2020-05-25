@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="EUC-KR">
+	<style>
+		#mainDiv {
+			width: 30%;
+		}
+
+		ul {
+			list-style-position: inside;
+			padding: 0;
+		}
+
+		li {
+			text-align: left;
+			border-bottom: 1px solid #999;
+			padding: 5px 0px;
+		}
+
+		#addBtn {
+			padding: 5px 10px;
+			border: 0px;
+			background: rgb(78, 123, 247);
+			color: white;
+			border-radius: 5px;
+		}
+
+		.active {
+			background: rgb(228, 253, 182)
+		}
+	</style>
+	<script type="text/javascript">
+		function ListClick() {
+			let lst = document.getElementById('lst');
+			let liLst = lst.getElementsByTagName('li');
+
+			for (let i = 0; i < liLst.length; i++) {
+				liLst[i].addEventListener('click', activeLst);
+			}
+		}
+		function activeLst(event) {
+			let title = document.getElementById('title');
+			title.innerText = this.innerText;
+
+			let liLst = event.target.parentElement.children;
+			for (let i = 0; i < liLst.length; i++)
+				liLst[i].removeAttribute('class');
+
+			this.setAttribute('class', 'active');
+		}
+		function btnClick() {
+			let addBtn = document.getElementById('addBtn');
+			addBtn.addEventListener('click', function () {
+				var inputTxt = prompt('추가 내용 입력');
+				let lst = document.getElementById('lst');
+				let li = document.createElement('li');
+
+				li.innerText = inputTxt;
+				li.addEventListener('click', activeLst);
+				lst.appendChild(li);
+			});
+		}
+
+	</script>
+</head>
+
+<body>
+	<center>
+		<div id="mainDiv">
+			<h1 id="title">Bucket List</h1>
+			<hr>
+			<button id="addBtn">목록추가</button>
+			<ul id="lst">
+				<li>세계일주</li>
+				<li>달착륙</li>
+				<li>태양 근거리 실사</li>
+			</ul>
+		</div>
+	</center>
+	<script type="text/javascript">
+		ListClick();
+		btnClick();
+	</script>
+</body>
+
+</html>

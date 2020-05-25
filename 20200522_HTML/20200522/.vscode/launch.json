@@ -19,6 +19,14 @@
       "port": 9239,
       "webRoot": "${workspaceFolder}",
       "url": "http://127.0.0.1:62644/p/20200522/src/test/Ex12.html?_cmAuth\u003dnualudjptt"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (2)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9213,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:62644/p/20200522/src/_20200525/Ex03.html?_cmAuth\u003dnualudjptt"
     }
   ]
 }
