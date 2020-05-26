@@ -1,0 +1,56 @@
+<html>
+
+<head>
+	<title>clock</title>
+	<meta charset="EUC-KR">
+	<script>
+		function dateTest(){
+			setInterval(function(){
+			document.getElementById('clock').innerHTML = new Date();
+			}, 1000);
+			document.write('<hr>');
+			let currentDate = new Date();
+			document.write(currentDate.getFullYear() + "연");
+			document.write(currentDate.getMonth() + 1 + "월");
+			document.write(currentDate.getDate() + "일");
+			document.write(currentDate.getDay() + "요일");
+			document.write(currentDate.getHours() + "시");
+			document.write(currentDate.getMinutes() + "분");
+			document.write(currentDate.getSeconds() + "초<br><br>");
+			
+
+			document.write(new Date(2018, 0, 0) + "<br><br>");
+			document.write(new Date(2018, 0, 1) + "<br><br>");
+			document.write(new Date(2018, 1, 0) + "<br><br>");
+			document.write(new Date(2018, 1, 1) + "<br><br>");
+
+			document.write("<br><br>");
+
+			let s = "";
+			s += "<table border='2'><tr>";
+			for(let m = 0; m < 12; ++m){
+				let maxDay = new Date(2020, m);
+				s += "<td>" + m + 1 + "월 </td> <br><br>";
+				
+				for(let d = 1; d < 33; ++d){
+					if(new Date(2020, m , d).getMonth() != m) break;
+					s += new Date(2020, m, d).getDate() + "&ensp;";
+
+					if(d % 7 == 0) s+= "<br>";
+
+				}
+				s += "<br><br><br>";
+			}
+			s += "</tr></table>";
+			document.write(s);
+		}
+	</script>
+	
+</head>
+
+<body>
+	<div id="clock"></div>
+	<script>dateTest();</script>
+</body>
+
+</html>

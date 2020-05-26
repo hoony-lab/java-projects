@@ -27,6 +27,46 @@
       "port": 9213,
       "webRoot": "${workspaceFolder}",
       "url": "http://127.0.0.1:62644/p/20200522/src/_20200525/Ex03.html?_cmAuth\u003dnualudjptt"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (3)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9262,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:62644/p/20200522/src/_20200526/Ex02.html?_cmAuth\u003dnualudjptt"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (4)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9279,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:62644/p/20200522/src/_20200526/Ex03.html?_cmAuth\u003dnualudjptt"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (5)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9267,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:62644/p/20200522/src/_20200526/Ex01.html?_cmAuth\u003dnualudjptt"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (6)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9240,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:62644/p/20200522/src/_20200526/Ex03-1.html?_cmAuth\u003dnualudjptt"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (7)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9298,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:62644/p/20200522/src/_20200526/Ex04.html?_cmAuth\u003dnualudjptt"
     }
   ]
 }

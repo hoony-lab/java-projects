@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="EUC-KR">
+
+	<style>
+		* {
+			margin: 0;
+		}
+
+		body {
+			padding: 20px;
+		}
+
+		h1,
+		p {
+			font-weight: normal;
+			margin: 5px 0px;
+			color: white;
+		}
+
+		#lightBox {
+			position: absolute;
+			overflow: hidden;
+			/*  */
+			width: 800px;
+			height: 560px;
+			box-sizing: border-box;
+			background: #000;
+
+			left: 50%;
+			margin-left: -400px;
+			top: 50%;
+			margin-top: -220px;
+
+		}
+
+		.btnClose {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			color: white;
+			padding: 10px;
+			font-size: large;
+		}
+
+		.btnClose:hover {
+			background-color: #666;
+		}
+
+		figure {
+			width: 600px;
+			height: 350px;
+			margin: 10px auto;
+			overflow: hidden;
+		}
+
+		figure img {
+			width: 600px;
+		}
+
+		.indicator {
+			text-align: center;
+		}
+
+		.indicator button {
+			background: #666;
+			color: white;
+			font-size: 12px;
+			border: none;
+			padding: 2px 5px;
+		}
+
+		.indicator button:hover {
+			background: #389;
+		}
+
+		.indicator button:focus {
+			background: #38f;
+		}
+
+		#lightBox table {
+			background: #533;
+			width: 80%;
+			border-collapse: collapse;
+			border-spacing: 0px;
+			table-layout: fixed;
+			margin: 0px auto;
+
+			border-top: 1px solid #888;
+			border-bottom: 1px solid #ff0;
+		}
+
+		#lightBox table td {
+			border-top: 1px solid #777;
+			text-align: center;
+			color: #fff;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<h1>light box</h1>
+		<img src="../img/car01.png" width='100' alt="" class="thumb">
+		<img src="../img/car02.png" width='100' alt="" class="thumb">
+		<img src="../img/car03.png" width='100' alt="" class="thumb">
+	</header>
+
+	<div id="block"></div>
+
+	<div id="lightBox">
+		<h1>어큐라 NSX GT3</h1>
+		<p>
+			<table>
+				<tr>
+					<th>모델명</th>
+					<th>배기량</th>
+					<th>최대출력</th>
+					<th>연비</th>
+					<th>출시</th>
+				</tr>
+				<tr>
+					<td>GT3</td>
+					<td>3,501cc</td>
+					<td>정보없음</td>
+					<td>정보없음</td>
+					<td>465,000유로</td>
+				</tr>
+			</table>
+		</p>
+		<figure>
+			<img src="../img/car01.png">
+			<img src="../img/car02.png">
+			<img src="../img/car03.png">
+		</figure>
+
+		<div class="indicator">
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+		</div>
+		<div class="btnClose">X</div>
+	</div>
+
+
+</body>
+
+</html>

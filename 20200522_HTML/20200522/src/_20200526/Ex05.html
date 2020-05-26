@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Calendar</title>
+	<meta charset="EUC-KR" />
+	<link rel="stylesheet" href="./CSS/Ex05Style.css">
+
+	<script type="text/javascript">
+		function main() {
+			setInterval(function () {
+				let date = new Date();
+				let s = date.getHours() + ":" + AddZero(date.getMinutes()) + ":" + AddZero(date.getSeconds());
+
+				document.getElementById('timeView').innerHTML = s;
+				//document.querySelector('#timeView').innerHTML = s;
+
+				s = date.getFullYear() + "년 " + (date.getMonth() + 1) + "월 " + date.getDate() + "일 " + getDay(date
+					.getDay()) + "요일";
+				document.getElementById('timeDateView').innerHTML = s;
+
+				
+				
+				
+				
+				
+			}, 1000);
+			let date = new Date();
+
+			let ss = date.getFullYear() + "년 " + (new Date().getMonth() + 1) + "월 ";
+			document.getElementById('calendarYearMonth').innerHTML = ss;
+			
+			document.getElementById('calendarDate').innerHTML = getCalender(date.getMonth());
+
+			document.getElementById('calendarBeforeBtn').addEventListener('click', PrevMonth);
+			document.getElementById('calenderAfterBtn').addEventListener('click', NextMonth)
+		}
+
+		function AddZero(time) {
+			if (time < 10) return "0" + time;
+			return time;
+		}
+
+		function getDay(day) {
+			if (day == 0) return "일";
+			if (day == 1) return "월";
+			if (day == 2) return "화";
+			if (day == 3) return "수";
+			if (day == 4) return "목";
+			if (day == 5) return "금";
+			if (day == 6) return "토";
+		}
+
+		function getCalender(m) {
+			let cnt = 0;
+			let s = "<table border='2'><tr>"
+			s += "<td>" + (m + 1) + "월</td></tr><br><br>";
+			s += "<tr><td>일</td><td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td></tr>";
+
+			s += "<tr>";
+			for (let i = 0; i < new Date(2020, m, 1).getDay(); ++i, ++cnt) s += "<td></td>";
+
+			for (let d = 1; d < 33; ++d, ++cnt) {
+				if (new Date(2020, m, d).getMonth() != m) break;
+
+				s += "<td>" + new Date(2020, m, d).getDate() + "</td>";
+
+				if (cnt % 7 == 6) s += "</tr><tr>";
+
+			}
+			s += "<br><br><br></tr></table>";
+			return s;
+		}
+
+		function PrevMonth() {
+			let y = document.getElementById('calenderYearMonth').innerText.substr(0, 4);
+			let m = document.getElementById('calenderYearMonth').innerText.substr(5, 2);
+			document.getElementById('calenderYearMonth').innerHTML = y + "년 " + m + "월 ";
+		}
+
+		function NextMonth() {
+			document.getElementById('calenderYearMonth').innerHTML = new Date().getFullYear() + "년 " + (new Date()
+			.getMonth() + 2) + "월 ";
+		}
+	</script>
+
+</head>
+
+<body onload="javascript:main()">
+	<div id="timeMain">
+		<div id="timeView">시간</div>
+		<div id="timeWindowCtrlBtn">ㅡ</div>
+		<div id="timeDateView">날짜</div>
+	</div>
+	<div id="calendarMain">
+		<div id="calendarYearMonth">년 월</div>
+		<div id="calendarWindowCtrlBtn">ㅡ</div>
+		<div id="calendarDate">날짜</div>
+		<div id="calendarBeforeBtn">&lt;</div>
+		<div id="calendarAfterBtn">&gt;</div>
+	</div>
+</body>
+
+</html>
