@@ -1,0 +1,204 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Calendar</title>
+	<meta charset="EUC-KR" />
+	<link rel="stylesheet" href="./style.css">
+
+	<script type="text/javascript">
+		function main() {
+			let curDate = new Date();
+			setTimeView();
+			setTimeDateView(curDate);
+
+
+			setYearMonth(curDate);
+			setCalendarDate(curDate);
+
+
+			document.getElementById('calendarBeforeBtn').addEventListener('click', PrevMonth);
+			document.getElementById('calendarAfterBtn').addEventListener('click', NextMonth)
+		}
+
+
+
+
+
+		function setTimeView() {
+			let timeView = document.getElementById('timeView');
+			timeView.innerHTML = getCurrentTime();
+
+			setInterval(() => {
+				timeView.innerHTML = getCurrentTime();
+			}, 1000);
+		}
+
+		function getCurrentTime() {
+			let curDate = new Date()
+			return NightAndDay(curDate.getHours()) + ':' +
+				AddZero(curDate.getMinutes()) + ':' +
+				AddZero(curDate.getSeconds());
+		}
+
+
+
+		function setTimeDateView(curDate) {
+			let s = curDate.getFullYear() + "년 " +
+				(curDate.getMonth() + 1) + "월 " +
+				curDate.getDate() + "일 " +
+				getDay(curDate.getDay());
+
+			document.getElementById('timeDateView').innerHTML = s;
+		}
+
+		function setYearMonth(curDate) {
+			let s = curDate.getFullYear() + "년 " + (curDate.getMonth() + 1) + "월 ";
+			return document.getElementById('calendarYearMonth').innerHTML = s;
+		}
+
+		function setCalendarDate(curDate) {
+			let calendarDate = document.getElementById('calendarDate');
+			calendarDate.innerHTML = '';
+
+
+			let dayNEndDate = getCurrentCalender(curDate.getFullYear(), curDate.getMonth());
+			calendarDate.appendChild(
+				createTable(
+					dayNEndDate.day,
+					dayNEndDate.endDate,
+					curDate
+				)
+			);
+		}
+
+		function getCurrentCalender(year, month) {
+			return {
+				day: new Date(year, month, 1).getDay(),
+				endDate: new Date(year, month + 1, 0).getDate()
+			}
+		}
+
+
+		function createTable(day, endDate, curDate) {
+			let dayArr = ['일', '월', '화', '수', '목', '금', '토'];
+			let dateCnt = 1;
+
+			let table = document.createElement("table");
+			for (let i = 0; i < (endDate + day) / 7 + 1; ++i) {
+				let tr = document.createElement('tr');
+				for (let j = 0; j < 7; ++j) {
+					let td = document.createElement('td');
+
+					if (dateCnt == curDate.getDate() &&
+					 curDate.getMonth() + 1 == document.getElementById('calendarYearMonth').innerHTML.split('년')[1].split('월')[0]
+					 )
+					  td.setAttribute('class', 'active');
+					if (i == 0) td.innerHTML = dayArr[j];
+					else if (i == 1 && j < day) td.innerHTML = "";
+					else td.innerHTML = dateCnt++;
+
+					tr.appendChild(td);
+
+					if (dateCnt > endDate) break;
+				}
+				table.appendChild(tr);
+			}
+			return table;
+		}
+
+
+
+
+
+		function NightAndDay(time) {
+			let s = "오전 ";
+			if (time >= 12) {
+				if (time != 12) time -= 12;
+				s = "오후 ";
+			}
+			return s + AddZero(time);
+		}
+
+		function AddZero(time) {
+			if (time < 10) return "0" + time;
+			return time;
+		}
+
+		function getDay(day) {
+			let dayArr = ['일', '월', '화', '수', '목', '금', '토'];
+			return dayArr[day] + "요일";
+		}
+
+		function getCalender(m) {
+			let cnt = 0;
+			let s = "<table border='2'><tr>"
+			s += "<td>" + (m + 1) + "월</td></tr><br><br>";
+			s += "<tr><td>일</td><td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td></tr>";
+
+			s += "<tr>";
+			for (let i = 0; i < new Date(2020, m, 1).getDay(); ++i, ++cnt) s += "<td></td>";
+
+			for (let d = 1; d < 33; ++d, ++cnt) {
+				if (new Date(2020, m, d).getMonth() != m) break;
+
+				s += "<td>" + new Date(2020, m, d).getDate() + "</td>";
+
+				if (cnt % 7 == 6) s += "</tr><tr>";
+
+			}
+			s += "<br><br><br></tr></table>";
+			return s;
+		}
+
+		function PrevMonth() {
+			let calYearMonth = document.getElementById('calendarYearMonth');
+			let yearMonth = calYearMonth.innerHTML;
+			let y = parseInt(yearMonth.split('년')[0]);
+			let m = parseInt(yearMonth.split('년')[1].split('월')[0]);
+			
+			if(m == 1) {
+				y -= 1;
+				m = 12;
+			}
+			else m -= 1;
+			calYearMonth.innerHTML = y + "년  " + m + "월";
+			setCalendarDate(new Date(y, m));
+		}
+		
+		function NextMonth() {
+			let calYearMonth = document.getElementById('calendarYearMonth');
+			let yearMonth = calYearMonth.innerHTML;
+			let y = parseInt(yearMonth.split('년')[0]);
+			let m = parseInt(yearMonth.split('년')[1].split('월')[0]);
+			
+			if(m == 12) {
+				y += 1;
+				m = 1;
+			}
+			else m += 1;
+			calYearMonth.innerHTML = y + "년  " + m + "월";
+			setCalendarDate(new Date(y, m));
+		}
+		</script>
+
+</head>
+
+<body onload="javascript:main()">
+	<div id="timeMain">
+		<div id="timeView">시간</div>
+		<div id="timeWindowCtrlBtn">ㅡ</div>
+		<div id="timeDateView">날짜</div>
+	</div>
+	<div id="calendarMain">
+		<div id="calendarYearMonth">년 월</div>
+		<div id="calendarWindowCtrlBtn">ㅡ</div>
+		<div id="calendarDate">날짜</div>
+		<div id="calendarBeforeBtn">&lt;</div>
+		<div id="calendarAfterBtn">&gt;</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+/* <!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="timeMain">
+        <div id="timeView">시간</div>
+        <div id="timeWindowCtrlBtn">ㅡ</div>
+        <div id="timeDateView">날짜</div>
+    </div>
+    <div id="calendarMain">
+        <div id="calendarYearMonth">년 월</div>
+        <div id="calendarWindowCtrlBtn">ㅡ</div>
+        <div id="calendarDate">날짜</div>
+        <div id="calendarBeforeBtn">&lt;</div>
+        <div id="calendarAfterBtn">&gt;</div>
+    </div>
+</body>
+</html>
+
+ */
+
+* {
+	margin: 0px;
+}
+
+body {
+	padding: 20px;
+}
+
+#timeMain {
+	background: #555;
+	border: 1px solid #fff;
+	width: 400px;
+	height: 100px;
+
+	position: absolute;
+	left: 50%;
+	margin-left: -300px;
+	top: 50%;
+	margin-top: -200px;
+}
+
+#calendarMain {
+	background: #555;
+	border: 1px solid #fff;
+	width: 400px;
+	height: 300px;
+
+	position: absolute;
+	left: 50%;
+	margin-left: -300px;
+	top: 50%;
+	margin-top: -100px;
+}
+
+#timeView {
+	position: absolute;
+	left: 40px;
+	top: 10px;
+	font-size: 50px;
+	color: #fff;
+}
+
+#timeWindowCtrlBtn {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 10px;
+	color: #fff;
+}
+
+#timeWindowCtrlBtn:hover {
+	background: #888;
+}
+
+#timeWindowCtrlBtn:active {
+	background: #F00;
+}
+
+#timeDateView {
+	position: absolute;
+	left: 40px;
+	bottom: 5px;
+	font-size: 20px;
+	color: #faa;
+}
+
+#calendarWindowCtrlBtn {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 10px;
+	color: #fff;
+}
+
+#calendarWindowCtrlBtn:hover {
+	background: #888;
+}
+
+#calendarWindowCtrlBtn:active {
+	background: #F00;
+}
+
+#calendarBeforeBtn {
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	padding: 10px;
+	color: #fff;
+}
+
+#calendarBeforeBtn:hover {
+	background: #888;
+}
+
+#calendarBeforeBtn:active {
+	background: #F00;
+}
+
+#calendarAfterBtn {
+	position: absolute;
+	right: 0px;
+	top: 50%;
+	padding: 10px;
+	color: #fff;
+}
+
+#calendarAfterBtn:hover {
+	background: #888;
+}
+
+#calendarAfterBtn:active {
+	background: #F00;
+}
+
+
+
+
+#calendarYearMonth {
+	position: absolute;
+	left: 40px;
+	top: 10px;
+	font-size: 20px;
+	color: #fff;
+}
+
+#calendarDate {
+	position: absolute;
+	left: 40px;
+	top: 40px;
+	font-size: 20px;
+	color: #fff;
+
+	width: 320px;
+	height: 240px;
+	background: #888;
+}
+
+/* table {
+	position: absolute;
+	top: 0px;
+}
+td {
+	border-collapse: collapse;
+	
+	width: 40px;
+	height: 20px;
+	
+	text-align: center;
+} */
+
+table{width: 100%;height: 100%;}
+table, td{
+    color: white;
+    border: #666 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+td:first-child{
+    color: red;
+}
+
+td:nth-child(7){
+	color: blue;
+}
+
+td.active{
+	color: yellowgreen;
+}
