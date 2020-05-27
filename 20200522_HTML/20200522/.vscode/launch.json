@@ -67,6 +67,14 @@
       "port": 9298,
       "webRoot": "${workspaceFolder}",
       "url": "http://127.0.0.1:62644/p/20200522/src/_20200526/Ex04.html?_cmAuth\u003dnualudjptt"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (8)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9270,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:62644/p/20200522/src/_20200526/Ex05.html?_cmAuth\u003dnualudjptt"
     }
   ]
 }
