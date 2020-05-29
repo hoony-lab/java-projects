@@ -1,0 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<div align="center">
+	<h1>Hoony's Tech Blog</h1>
+</div>
