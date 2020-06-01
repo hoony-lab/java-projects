@@ -1,29 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%
-	String newPage = "signUpForm.jsp";
-
-	String name = request.getParameter("name");
+	/* String name = request.getParameter("name"); */
+	request.setAttribute("name", request.getParameter("name"));
 	String id = request.getParameter("id");
-	String pw = request.getParameter("pw");
-	String pwCheck = request.getParameter("pwCheck");
-	
-	if ("".contentEquals(id) || "".contentEquals(name) || "".contentEquals(pw) || "".contentEquals(pwCheck)) {
-		out.print("alert('please type all info !!!')");
-		newPage = "signUpForm.jsp";
-	} else
-		newPage = "signUpOk.jsp";
 %>
+
+<%-- <jsp:forward page = "<%=newPage %>"></jsp:forward> --%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>OK</title>
 </head>
-<body>
+<body align="center">
 	<h1>회원가입 ㅊㅋ</h1>
-	<form action="signUpForm.jsp" method="post">
-		<input type="hidden" name="name" value="<%=name %>"/>
+	<!-- <form action="changeInfo.jsp" method="get"> -->
+	<form action="signUpForm.jsp" method="get">
+<%-- 		<input type="hidden" name="name" value="<%=name %>"/> --%>
+		<input type="hidden" name="state" value="modify"/>
+		<input type="hidden" name="name" value="<%=request.getAttribute("name")%>"/>
 		<input type="hidden" name="id" value="<%=id %>"/>
 		<input type="submit" value="수정" />
 	</form>

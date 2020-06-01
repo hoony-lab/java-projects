@@ -8,11 +8,15 @@
 	String pw = request.getParameter("pw");
 	String pwCheck = request.getParameter("pwCheck");
 	
-	if ("".contentEquals(id) || "".contentEquals(name) || "".contentEquals(pw) || "".contentEquals(pwCheck)) {
-		out.print("alert('please type all info !!!')");
+	if (id.isEmpty() || name.isEmpty() || pw.isEmpty() || pwCheck.isEmpty()) {
+		//out.print("<script>alert('please type all info !!!')</script>");
+		newPage = "signUpForm.jsp";
+	} else if (!pw.contentEquals(pwCheck)) {
+		//out.print("<script>alert('wrong check pw!!!')</script>");
 		newPage = "signUpForm.jsp";
 	} else
 		newPage = "signUpOk.jsp";
 %>
 
-<jsp:forward page="<%=newPage %>"></jsp:forward>
+
+<jsp:forward page="<%=newPage%>"></jsp:forward>
