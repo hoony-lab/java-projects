@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%
+	String id = (String)session.getAttribute("id");
+	if(id == null)	id = "";
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +20,7 @@
 		<table align="center">
 			<tr>
 				<td>아이디</td>
-				<td colspan="2"><input type="text" name="id"></td>
+				<td colspan="2"><input type="text" name="id" value="<%=id %>"></td>
 			</tr>
 			<tr>
 				<td>패스워드</td>
