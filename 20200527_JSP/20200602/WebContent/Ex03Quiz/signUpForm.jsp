@@ -1,5 +1,43 @@
+<%@page import="com.jin.mail.JinsMail"%>
+<%@page import="java.util.Random"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	
+<jsp:useBean id="mail" class="com.jin.mail.JinsMail"></jsp:useBean>
+<jsp:setProperty name="mail" property="id" value="jihun9839@gmail.com"></jsp:setProperty>
+<jsp:setProperty name="mail" property="pw" value="159357qeW@"></jsp:setProperty>
+	
+	
+<%-- <%!
+String sndUsrName = "jihun9839";
+String sndUsrEmail = "jihun9839@gmail.com";
+String recvUsrEmail = "jihun9839@gmail.com";
+String title = "Test from hoony";
+String contents = "HOHOs";
+
+	public void SendAuth(){
+		int authNum = new Random().nextInt(9999) + 1;
+		
+		
+			
+	}
+%>
+ --%>
+ 
+<script type="text/javascript">
+function sendAuth(){
+	let sndUsrName = "jihun9839";
+	let sndUsrEmail = "jihun9839@gmail.com";
+	let title = "Test from hoony";
+	let contents = "HOHOs<br>";
+	
+	Rand
+	
+	let recvUserEmail = document.getElementById("recvUsrEmail").innerHTML;
+	mail.SendMail(sndUsrName, sndUsrEmail, recvUsrEmail, title, contents);
+}
+</script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +76,13 @@ span, input {
 	justify-content: space-between;
 }
 
+input[type="button"]:hover, input[type="submit"]:hover {
+  border: 1px #000 solid;
+  -webkit-transition: border 0.3s ease-out;
+  -webkit-transition: transform 250ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+}
+
+
 </style>
 
 </head>
@@ -74,13 +119,17 @@ span, input {
 			<br>
 
 			<div class="space-between">
-				<span><input type="text" name="authMail"
-					placeholder="본인 확인 이메일"></span> <span><input type="button"
-					value="인증번호 전송" style="background-color: #3bcc62; border-radius: 20px;"> </span>
+				<span><input type="text" name="authMail" id="recvUsrEmail" placeholder="본인 확인 이메일"></span> 
+				<span><input type="button" value="인증번호 전송" onclick="sendAuth()"
+					 style="background-color: #3bcc62; border-radius: 20px;"> </span>
+					 
+				<button onclick="window.open('sendAuth.jsp')">button</button>
+				<button formaction="sendAuth.jsp" onclick="location.href='sendAuth.jsp'">button</button>
 			</div>
 			<div class="space-between">
 				<span><input type="text" name="authCheck" placeholder="인증번호">
-				</span> <span><input type="button" value="확인" style="background-color: #3bcc62; border-radius: 20px;"></span>
+				</span> 
+				<span><input type="button" value="확인" style="background-color: #3bcc62; border-radius: 20px;"></span>
 			</div>
 
 			<br>
