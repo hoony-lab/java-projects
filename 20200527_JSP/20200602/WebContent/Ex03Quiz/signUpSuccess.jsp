@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<jsp:useBean id="member" class="signUp.Member" scope="request"/>
+<jsp:useBean id="member" class="signUp.Member" scope="request">
+</jsp:useBean>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +30,8 @@ div {
 	day : <jsp:getProperty name="member" property="day"/><br>
 	authEmail : <jsp:getProperty name="member" property="authMail"/><br>
 	authCheck : <jsp:getProperty name="member" property="authCheck"/><br>
+	authNum : <jsp:getProperty name="member" property="authNum"/><br>
+	session.getAttribute("auth") : <%=session.getAttribute("auth") %>
 </div>
 </body>
 </html>

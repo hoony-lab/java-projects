@@ -9,8 +9,37 @@ public class Member {
 	String year, month, day;
 	String authMail;
 	String authCheck;
+	String authNum;
 	
-	
+	public Member() {
+		this.id = "";
+		this.pw = "";
+		this.pwCheck = "";
+		this.name = "";
+		this.sex = "";
+		this.year = "";
+		this.month = "";
+		this.day = "";
+		this.authMail = "";
+		this.authCheck = "";
+		this.authNum = "";
+	}
+
+	public Member(String id, String pw, String pwCheck, String name, String sex, String year, String month, String day,
+			String authMail, String authCheck, String authNum) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.pwCheck = pwCheck;
+		this.name = name;
+		this.sex = sex;
+		this.year = year;
+		this.month = month;
+		this.day = day;
+		this.authMail = authMail;
+		this.authCheck = authCheck;
+		this.authNum = authNum;
+	}
 	
 	public String getId() {
 		return id;
@@ -72,6 +101,11 @@ public class Member {
 	public void setAuthCheck(String authCheck) {
 		this.authCheck = authCheck;
 	}
-	
+	public String getAuthNum() {
+		return authNum;
+	}
+	public void setAuthNum(String authNum) {
+		this.authNum = authNum;
+	}
 	
 }
