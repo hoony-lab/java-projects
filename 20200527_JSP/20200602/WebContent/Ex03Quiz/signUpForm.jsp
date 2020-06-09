@@ -30,7 +30,7 @@ body {
 	background-color: #cfcfcf;
 	width: 400px;
 	hieght: 400px;
-	border-color: black;
+	border-color: black;43
 }
 
 div {

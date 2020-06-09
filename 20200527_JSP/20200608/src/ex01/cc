@@ -1,0 +1,107 @@
+DROP TABLE customer;
+
+
+
+CREATE TABLE customer(
+			customerID INT NOT NULL, 
+			customerName VARCHAR2(50) NULL, 
+			contactName VARCHAR2(20) NULL, 
+			address VARCHAR2(50) NULL, 
+			city VARCHAR2(20) NULL, 
+			postalCode VARCHAR2(50) NULL, 
+			country VARCHAR2(20) NULL
+);
+			
+			
+SELECT * FROM customer;
+
+
+
+CREATE TABLE category
+(
+    CategoryID      INT             NOT NULL, 
+    CategoryName    VARCHAR2(80)    NULL, 
+    Description     VARCHAR2(80)    NULL, 
+    CONSTRAINT CATEGORY_PK PRIMARY KEY (CategoryID)
+)
+
+SELECT * FROM CATEGORY;
+
+CREATE TABLE employee
+(
+    EmployeeID    INT              NOT NULL, 
+    LastName      VARCHAR2(40)     NULL, 
+    FirstName     VARCHAR2(40)     NULL, 
+    BirthDate     VARCHAR2(40)     NULL, 
+    Photo         VARCHAR2(40)     NULL, 
+    Notes         VARCHAR2(500)    NULL, 
+    CONSTRAINT EMPLOYEE_PK PRIMARY KEY (EmployeeID)
+)
+
+
+
+CREATE TABLE orders
+(
+    OrderID       INT             NOT NULL, 
+    CustomerID    INT             NULL, 
+    EmployeeID    INT             NULL, 
+    OrderDate     VARCHAR2(40)    NULL, 
+    ShipperID     INT             NULL, 
+    CONSTRAINT ORDERS_PK PRIMARY KEY (OrderID)
+)
+
+
+
+
+CREATE TABLE orderDetail
+(
+    OrderIDOrderDetailID    INT    NOT NULL, 
+    ProductID               INT    NULL, 
+    Quantity                INT    NULL, 
+    OrderID                 INT    NULL, 
+    CONSTRAINT ORDERDETAIL_PK PRIMARY KEY (OrderIDOrderDetailID)
+)
+
+
+
+
+DROP TABLE product;
+CREATE TABLE product
+(
+    ProductID      INT              NOT NULL, 
+    ProductName    VARCHAR2(40)     NULL, 
+    SupplierID     INT              NULL, 
+    CategoryID     INT              NULL, 
+    Unit           VARCHAR2(40)    NULL, 
+    Price          FLOAT              NULL, 
+    CONSTRAINT PRODUCT_PK PRIMARY KEY (ProductID)
+)
+
+SELECT * FROM product;
+
+
+DROP TABLE Shipper;
+
+CREATE TABLE Shipper
+(
+    ShipperID      INT             NOT NULL, 
+    ShipperName    VARCHAR2(50)    NULL, 
+    Phone          VARCHAR2(50)    NULL, 
+    CONSTRAINT SHIPPER_PK PRIMARY KEY (ShipperID)
+)
+
+SELECT * FROM Shipper;
+
+
+CREATE TABLE supplier
+(
+    SupplierID      INT             NOT NULL, 
+    SupplierName    VARCHAR2(40)    NULL, 
+    ContactName     VARCHAR2(40)    NULL, 
+    Address         VARCHAR2(40)    NULL, 
+    City            VARCHAR2(30)    NULL, 
+    PostalCode      VARCHAR2(30)    NULL, 
+    Country         VARCHAR2(30)    NULL, 
+    Phone           VARCHAR2(20)    NULL, 
+    CONSTRAINT SUPPLIER_PK PRIMARY KEY (SupplierID)
+)
