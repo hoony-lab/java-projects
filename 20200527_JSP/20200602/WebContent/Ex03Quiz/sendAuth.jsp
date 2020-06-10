@@ -15,19 +15,19 @@
 	String sndUsrEmail = "jihun9839@gmail.com";
 	String recvUsrEmail = "jihun9839@gmail.com";
 	String title = "Test from hoony";
-	String contents = "HOHOs";
+	String authNum = "HOHOs";
 
 	String id = sndUsrName;
-	String pw = "159357qeW@";
+	String pw = "???????????????????????????????????";
 	
 	public void SendAuthNum() {
 		JinsMail mail = new JinsMail();
 		mail.setId(id);
 		mail.setPw(pw);
 		
-		contents = GenAuthNum();
+		authNum = GenAuthNum();
 		
-		mail.SendMail(sndUsrName, sndUsrEmail, recvUsrEmail, title, contents);
+		mail.SendMail(sndUsrName, sndUsrEmail, recvUsrEmail, title, authNum);
 	}
 
 	public String GenAuthNum() {
@@ -37,8 +37,8 @@
 
 <%
 	SendAuthNum();
-	member.setAuthNum(contents);
-	session.setAttribute("auth", contents);
+	member.setAuthNum(authNum);
+	session.setAttribute("auth", authNum);
 %>
 	
 <jsp:forward page="signUpForm.jsp">

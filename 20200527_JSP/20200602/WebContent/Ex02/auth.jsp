@@ -3,7 +3,7 @@
 
 <jsp:useBean id="mails" class="com.jin.mail.JinsMail"></jsp:useBean>
 <jsp:setProperty name="mails" property="id" value="jihun9839@gmail.com"></jsp:setProperty>
-<jsp:setProperty name="mails" property="pw" value="159357qeW@"></jsp:setProperty>
+<jsp:setProperty name="mails" property="pw" value="????????????????????"></jsp:setProperty>
 
 <%
 	String sndUsrName = "jihun9839";
