@@ -1,11 +1,15 @@
+<%@page import="com.jin.mail.SHA"%>
 <%@ page contentType="text/html; charset=EUC-KR"%>
 <%
 	String email = request.getParameter("email");
 	String authNumAttr = (String)session.getAttribute("authNumAttr");
+	String authNumAttrSHA = (String)session.getAttribute("authNumAttrSHA");
 %>
-<script src="memberForm.js"></script>
+<%-- <script src="<%=request.getContextPath() %>/js/common.js"></script> --%>
+<script src="<%=request.getContextPath() %>/js/memberForm.js"></script>
 
 <form id="form" action="<%=request.getContextPath() %>/membership/memberProc.jsp" method="post">
+	<input type="hidden" name="authNumAttrSHA" id="authNumAttr" value="<%=authNumAttr %>">
 	<div align="center">
 	<table>
 		<tr>

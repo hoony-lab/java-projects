@@ -4,8 +4,8 @@
 	if(id == null) id = "";
 %>
 
-<form action="index.jsp" method="post">
-	<input type="hidden" name="frmPage" value="loginProc">
+<form action="<%=request.getContextPath() %>/login/loginProc.jsp" method="post">
+<!-- 	<input type="hidden" name="frmPage" value="loginProc"> -->
 	<div align="center">
 	<table>
 		<tr>

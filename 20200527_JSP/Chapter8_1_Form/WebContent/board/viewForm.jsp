@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
 <center>
 <table style="width: 650px; ">
 	<tr>

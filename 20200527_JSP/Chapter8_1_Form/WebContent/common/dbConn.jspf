@@ -1,0 +1,35 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+
+<%!
+	public Connection getConn(String url, String port, String db){
+		Connection conn = null;
+		
+		String jdbcDriver = "jdbc:oracle:thin:@" + url + ":" + port + ":" + db;
+		String dbUser = "c##hoony";
+		String dbPass = "0000";
+		
+		try{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+%>
+
+
+<%-- <%@ page language="java" contentType="text/html; charset=EUC-KR" --%>
+<%--     pageEncoding="EUC-KR"%> --%>
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <meta charset="EUC-KR"> -->
+<!-- <title>Insert title here</title> -->
+<!-- </head> -->
+<!-- <body> -->
+
+<!-- </body> -->
+<!-- </html> -->

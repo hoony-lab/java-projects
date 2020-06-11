@@ -1,5 +1,79 @@
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.Comparator"%>
+<%@page import="hoony.lab.Board"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
+<%@ include file="../common/dbConn.jspf" %>
+
+<%!
+	public List<Board> SelectBoard(){
+		List<Board> boardList = new ArrayList<>();
+		
+		Connection conn = getConn("localhost", "1521", "ex");
+		String sql = "SELECT * FROM Board";
+		
+		Statement stmt = null;
+		ResultSet rs = null;
+		try{
+			rs = stmt.executeQuery(sql);
+			
+			// id, title, date, content
+			while(rs.next()){
+				Board o = new Board();
+				
+				o.setId(rs.getString("id"));
+				o.setTitle(rs.getString("title"));
+				o.setDate(rs.getString("date"));
+				o.setViewcnt(rs.getInt("viewcnt"));
+				o.setContent(rs.getString("content"));
+				o.setNum(rs.getInt("num"));
+				
+				boardList.add(o);
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return boardList;
+	}
+
+	public String MakeBoard(List<Board> boardList){
+		if((String a) -> {
+				a="asd";
+			return 0;
+			})
+// 		boardList.sort(Comparator<Board> (Board b1, Board b2) -> b2.getDate() - b1.getDate());
+		
+		Comparator<Board> cmp = Comparator.comparing(Board::getDate);
+		
+		Collections.sort(boardList, cmp);
+		
+		Collections.sort(boardList, Comparator.comparing(Board::getDate));
+		
+		LocalDate date = LocalDate.now();
+		
+		String res = "";
+		res += "<tr>";
+// 		res += "<td style='width: 40px; height:40px;' align='center'><input type='checkbox'/></td>";
+// 		res += "<td style='width: 330px; height:40px;' align='center'>" + title + "</td>";
+// 		res += "<td style='width: 80px; height:40px;' align='center'>" + id + "</td>";
+// 		res += "<td style='width: 120px; height:40px;' align='center'>" + date + "</td>";
+// 		res += "<td style='width: 80px; height:40px;' align='center'>" + viewCnt + "</td>";
+		res += "</tr>";
+		
+		return res;
+	}
+	
+%>
+
+<%
+	//String ip = request.getRemoteAddr();
+%>
 <form action="index.jsp" method="post">
 	<input type="hidden" name="frmPage" value="writeForm">
 	<div align="center">

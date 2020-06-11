@@ -22,9 +22,9 @@
 		
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, member.getId());
-		pstmt.setString(1, member.getPw());
-		pstmt.setString(1, member.getGender());
-		pstmt.setString(1, member.getEmail());
+		pstmt.setString(2, member.getPw());
+		pstmt.setString(3, member.getGender());
+		pstmt.setString(4, member.getEmail());
 		pstmt.executeUpdate();
 
 		conn.close();

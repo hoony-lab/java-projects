@@ -25,14 +25,16 @@ a:active{color:#ff00cc; text-decoration:underline; }
 	<tr align="right">
 		<td></td>
 		<td colspan=3><%=auth %></td>
-		<td><span><a href="<%=request.getContextPath() %>/form/logoutProc.jsp"><i><%=logout %></i></a></span></td>
+		<td><span><a href="<%=request.getContextPath() %>/login/logoutProc.jsp"><i><%=logout %></i></a></span></td>
 	</tr>
 	<tr align="right" >
 		<td width=500></td>
 	      <td><a href="<%=request.getContextPath() %>/index.jsp?frmPage=home">홈</a></td>
 	      <td><a href="<%=request.getContextPath() %>/index.jsp?frmPage=loginForm">로그인</a></td>
 	      <td><a href="<%=request.getContextPath() %>/index.jsp?frmPage=authForm">회원가입</a></td>
+	      <% if(!"".contentEquals(auth)) { %>
 	      <td><a href="<%=request.getContextPath() %>/index.jsp?frmPage=boardForm">게시판</a></td>
+	      <% } %>
 	</tr>
 	<tr><td align="center" colspan=5><hr/></td></tr>
 </table>

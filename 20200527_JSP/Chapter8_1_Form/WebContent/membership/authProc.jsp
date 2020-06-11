@@ -1,3 +1,4 @@
+<%@page import="com.jin.mail.SHA"%>
 <%@page import="java.util.Random"%>
 <%@page import="com.jin.mail.JinsMail"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -29,7 +30,9 @@
 	
 %>
 <%
+
 	// SendAuthNum(request.getParameter("email"));
+ 	session.setAttribute("authNumAttrSHA", new SHA().encryptSHA512(authNum));
  	session.setAttribute("authNumAttr", authNum);
 %>
 
