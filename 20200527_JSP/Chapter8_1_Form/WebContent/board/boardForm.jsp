@@ -8,13 +8,6 @@
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<%
-	String auth = (String)session.getAttribute("auth");
-	if(auth == null) { %>
-	<script>history.go(-1)</script>
-	<% } %>
-	
-
 <%@ include file="../common/dbConn.jspf" %>
 
 <%!

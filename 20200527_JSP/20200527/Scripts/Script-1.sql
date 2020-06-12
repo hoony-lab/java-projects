@@ -1,4 +1,6 @@
-DROP TABLE Board
+DROP TABLE Board;
+
+
 
 CREATE TABLE Board
 (
@@ -7,10 +9,12 @@ CREATE TABLE Board
     title        VARCHAR2(100)    NULL, 
     content      CLOB             NULL, 
     writeDate    DATE             NULL, 
-    viewCnt      INT              NULL, 
     CONSTRAINT BOARD_PK PRIMARY KEY (id)
 )
+/
+DELETE SEQUENCE Board_SEQ
 
 CREATE SEQUENCE Board_SEQ
 START WITH 1
 INCREMENT BY 1;
+/

@@ -1,14 +1,16 @@
 package hoony.lab;
 
+import java.sql.Date;
+
 public class Board implements Comparable<Board>{
 
     private String id;
     private String title;
-    private String date;
+    private Date date;
     private Integer viewcnt;
     private String content;
     private Integer num;
-
+    
     public String getId() {
         return id;
     }
