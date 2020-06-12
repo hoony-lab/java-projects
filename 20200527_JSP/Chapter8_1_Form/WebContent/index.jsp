@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ include file="/common/header.jspf" %>
+<%-- <%@ include file="/common/header.jspf" %> --%>
+<% request.setCharacterEncoding("UTF-8"); %>
 
 <%
 	String frmPage = request.getParameter("frmPage");
@@ -9,13 +10,15 @@
 	else if("authForm".contentEquals(frmPage) || 
 			"memberForm".contentEquals(frmPage))
 		frmPath = "/membership/" + frmPage;
-	else if("loginForm".contentEquals(frmPage))
+	else if("loginForm".contentEquals(frmPage) ||
+			"logoutProc".contentEquals(frmPage))
 		frmPath = "/login/" + frmPage;
 	else if("boardForm".contentEquals(frmPage) ||
 			"viewForm".contentEquals(frmPage) ||
 			"writeForm".contentEquals(frmPage))
 		frmPath = "/board/" + frmPage;
 	else if(frmPage != null) frmPath = "/form/" + frmPage;
+	
 	
 	frmPath += ".jsp";
 %>
@@ -31,11 +34,15 @@
 	<td style="height:100px;"><%@ include file="/common/top.jsp" %></td>
 </tr>
 <tr>
-	<td style="height:400px;"><jsp:include page="<%=frmPath %>"/></td>
+	<td style="height:400px;">
+		<jsp:include page="<%=frmPath %>">
+			<jsp:param value="idx" name="curPage"/>
+		</jsp:include>
+	</td>
 </tr>
-<tr>
-	<td style="height:50px;"><%@ include file="/common/footer.jspf" %></td>
-</tr>
+<!-- <tr> -->
+<%-- 	<td style="height:50px;"><%@ include file="/common/footer.jspf" %></td> --%>
+<!-- </tr> -->
 </table>
 </div>
 </body>

@@ -8,6 +8,13 @@
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
+<%
+	String auth = (String)session.getAttribute("auth");
+	if(auth == null) { %>
+	<script>history.go(-1)</script>
+	<% } %>
+	
+
 <%@ include file="../common/dbConn.jspf" %>
 
 <%!
@@ -43,10 +50,6 @@
 	}
 
 	public String MakeBoard(List<Board> boardList){
-		if((String a) -> {
-				a="asd";
-			return 0;
-			})
 // 		boardList.sort(Comparator<Board> (Board b1, Board b2) -> b2.getDate() - b1.getDate());
 		
 		Comparator<Board> cmp = Comparator.comparing(Board::getDate);
@@ -74,7 +77,8 @@
 <%
 	//String ip = request.getRemoteAddr();
 %>
-<form action="index.jsp" method="post">
+<form id="form" action="index.jsp" method="post">
+	<input type="hidden" name="curPage" value="boardForm">
 	<input type="hidden" name="frmPage" value="writeForm">
 	<div align="center">
 	<table style="width: 650px; ">
@@ -134,3 +138,4 @@
 	</table>
 	</div>
 </form>
+

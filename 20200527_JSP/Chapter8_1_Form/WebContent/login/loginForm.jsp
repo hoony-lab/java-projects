@@ -5,7 +5,7 @@
 %>
 
 <form action="<%=request.getContextPath() %>/login/loginProc.jsp" method="post">
-<!-- 	<input type="hidden" name="frmPage" value="loginProc"> -->
+ 	<input type="hidden" name="curPage" value="loginForm">
 	<div align="center">
 	<table>
 		<tr>

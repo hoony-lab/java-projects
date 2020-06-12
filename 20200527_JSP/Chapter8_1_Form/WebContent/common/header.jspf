@@ -1,2 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%request.setCharacterEncoding("UTF-8"); %>
+
+<%	
+	String curPage = (String)request.getParameter("curPage");
+	if(curPage == null /*|| "idx".contentEquals(curPage)*/) { %>
+<%-- 	<script>alert("<%=curPage %>")</script> --%>
+		<%@ include file="../common/error.jspf" %>
+<% 		return ; } %>

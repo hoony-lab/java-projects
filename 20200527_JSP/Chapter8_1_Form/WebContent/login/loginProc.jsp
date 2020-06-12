@@ -2,9 +2,9 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="com.jin.mail.SHA"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"%>
-    
+
 <%@ include file="../common/dbConn.jspf" %>
 
 <%!
@@ -34,20 +34,26 @@
 %>
 
 <%
-	Connection conn = getConn("localhost", "1521", "xe");
-
-	String id = request.getParameter("id");
-	String SHApw = new SHA().encryptSHA512(request.getParameter("pw"));
 	
-	String errorLog = "";
-		
+// 	String curPage = (String)request.getParameter("curPage");    
+	
 	String frmPage = "loginForm";
-	if(SelectIdPw(conn, id, SHApw) == 1){
-		frmPage = "home";
-		session.setAttribute("auth", id);
-	}
-	else errorLog = "No Matching Id";
+	if("loginForm".contentEquals(curPage)) {
 		
+		Connection conn = getConn("localhost", "1521", "xe");
+	
+		String id = request.getParameter("id");
+		String SHApw = new SHA().encryptSHA512(request.getParameter("pw"));
+		
+		String errorLog = "";
+			
+		if(SelectIdPw(conn, id, SHApw) == 1){
+			frmPage = "home";
+			session.setAttribute("auth", id);
+		}
+		else errorLog = "No Matching Id";
+		
+    }
 %>
 
 <jsp:forward page="/index.jsp">

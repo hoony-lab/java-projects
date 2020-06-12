@@ -25,7 +25,7 @@ a:active{color:#ff00cc; text-decoration:underline; }
 	<tr align="right">
 		<td></td>
 		<td colspan=3><%=auth %></td>
-		<td><span><a href="<%=request.getContextPath() %>/login/logoutProc.jsp"><i><%=logout %></i></a></span></td>
+		<td><span><a href="<%=request.getContextPath() %>/index.jsp?frmPage=logoutProc"><i><%=logout %></i></a></span></td>
 	</tr>
 	<tr align="right" >
 		<td width=500></td>
