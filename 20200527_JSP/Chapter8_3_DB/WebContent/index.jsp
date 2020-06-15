@@ -11,10 +11,13 @@
 	else if("loginForm".contentEquals(frmPage) ||
 			"logout".contentEquals(frmPage))
 		frmPath = "/Login/"+frmPage;
-	else if("boardForm".contentEquals(frmPage) ||
-			"writeForm".contentEquals(frmPage) ||
-			"viewForm".contentEquals(frmPage))
-		frmPath = "/Board/"+frmPage;
+	else if("boardForm".contentEquals(frmPage)	||
+			"writeForm".contentEquals(frmPage)	||
+			"viewForm".contentEquals(frmPage)	||
+			"boardProc".contentEquals(frmPage)
+			
+			)
+		frmPath = "/Board/" + frmPage;
 	else if(frmPage != null)	frmPath = "/form/"+frmPage;
 	
 	frmPath += ".jsp";

@@ -11,15 +11,20 @@
 	public boolean Insert(Connection conn, Board board){
 		PreparedStatement pstmt = null;
 		boolean result = true;
-		String sql = 	"INSERT INTO board "+
-						"(no, id, title, contents, writeDate) "+
-						"VALUES (Board_SEQ.nextval, ?, ?, ?, TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'))";
+// 		String sql = 	"INSERT INTO board "+
+// 						"(no, id, title, contents, writeDate) "+
+// 						"VALUES (Board_SEQ.nextval, ?, ?, ?, TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'))";
+
+		String sql = "INSERT INTO BOARD (NO, ID, TITLE, CONTENT, WRITEDATE) " +
+						"VALUES( " +
+						"(select nvl(max(NO), 0) + 1 FROM board), " +
+						"?, ?, ?, sysdate)";
 		try{
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, board.getId());
 			pstmt.setString(2, board.getTitle());
 			pstmt.setString(3, board.getContents());
-			pstmt.setString(4, board.getWritedate());
+// 			pstmt.setString(4, board.getWritedate());
 			
 			pstmt.execute();
 		}catch(Exception e){
@@ -52,6 +57,7 @@
 		
 		return formatter.format(date).toString();
 	}
+	
 	public Board setBoard(MultipartRequest multiReq){
 		Board board = new Board();
 		
@@ -74,7 +80,7 @@
 	Connection conn = getConn("localhost", "1521", "xe");
 	if(Insert(conn, board)){
 %>
-		<jsp:forward page="/Board/boardProc.jsp"></jsp:forward>
+		<jsp:forward page="/Board/boardProc.jsp?pageNum=1"></jsp:forward>
 <%
 	}else{
 %>
@@ -85,18 +91,3 @@
 <%
 	}
 %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

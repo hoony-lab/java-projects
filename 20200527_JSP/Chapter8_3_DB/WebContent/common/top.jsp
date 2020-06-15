@@ -19,7 +19,7 @@ a:active{color:#ff00cc; text-decoration:underline; }
 		<td><a href="<%=request.getContextPath() %>/index.jsp?frmPage=home">홈</a></td>
 <%if(usrId!=null) {%>
 		<td><a href="<%=request.getContextPath() %>/index.jsp?frmPage=logout">로그아웃(<%=usrId %>)</a></td>
-		<td><a href="<%=request.getContextPath() %>/index.jsp?frmPage=boardForm">게시판</a></td>
+		<td><a href="<%=request.getContextPath() %>/Board/boardProc.jsp?curPage=boardForm&pageNum=1">게시판</a></td>
 <%}else{ %>
 		<td><a href="<%=request.getContextPath() %>/index.jsp?frmPage=loginForm">로그인</a></td>
 		<td><a href="<%=request.getContextPath() %>/index.jsp?frmPage=authForm">회원가입</a></td>
