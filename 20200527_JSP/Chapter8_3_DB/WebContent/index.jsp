@@ -14,8 +14,8 @@
 	else if("boardForm".contentEquals(frmPage)	||
 			"writeForm".contentEquals(frmPage)	||
 			"viewForm".contentEquals(frmPage)	||
-			"boardProc".contentEquals(frmPage)
-			
+			"boardProc".contentEquals(frmPage)	||
+			"deleteProc".contentEquals(frmPage)
 			)
 		frmPath = "/Board/" + frmPage;
 	else if(frmPage != null)	frmPath = "/form/"+frmPage;
@@ -23,6 +23,7 @@
 	frmPath += ".jsp";
 %>
 <html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.0/cerulean/bootstrap.min.css">
 <body>
 <div align="center">
 <table style="width:800px;">

@@ -138,8 +138,7 @@
 	}
 	
 	
-	
-	
+
 	
 	
 
@@ -177,7 +176,6 @@
 		
 		boardList = getBoard(conn, pageNum * blockSize, (pageNum + 1 ) * blockSize, whereOption);
 		totalPage = getTotalPage(getConn("localhost", "1521", "xe"), whereOption);
-		
 	}
 	
 	request.setAttribute("totalPage", totalPage);
@@ -187,7 +185,7 @@
 	
 %>
 
-<jsp:forward page="/index.jsp">
+<jsp:forward page="/index.jsp?curPage=boardForm">
 	<jsp:param value="boardForm" name="frmPage"/>
 </jsp:forward>
 

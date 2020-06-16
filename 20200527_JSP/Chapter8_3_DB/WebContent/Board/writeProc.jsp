@@ -85,8 +85,8 @@
 	}else{
 %>
 <jsp:forward page="/index.jsp">
-<jsp:param value="<%=pagePath %>" name="frmPage"/>
-<jsp:param value='<%=URLEncoder.encode(errorLog, "UTF-8") %>' name="errorLog"/>
+	<jsp:param value="<%=pagePath %>" name="frmPage"/>
+	<jsp:param value='<%=URLEncoder.encode(errorLog, "UTF-8") %>' name="errorLog"/>
 </jsp:forward>
 <%
 	}

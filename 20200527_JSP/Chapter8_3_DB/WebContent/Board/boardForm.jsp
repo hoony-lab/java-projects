@@ -41,7 +41,7 @@
 	for(Board o : boardList){
 %>
 	<tr>
-		<td class="chkBox" style="width: 40px; height:40px;" align="center"><input type="checkbox" value="<%=o.getNo() %>"/></td>
+		<td style="width: 40px; height:40px;" align="center"><input type="checkbox" id="chkBox" name="chkBox" value="<%=o.getNo() %>"/></td>
 		<td style="width: 330px; height:40px;" align="center"><%=o.getTitle() %></td>
 		<td style="width: 80px; height:40px;" align="center"><%=o.getId() %></td>
 		<td style="width: 120px; height:40px;" align="center"><%=o.getWritedate() %></td>
@@ -53,9 +53,9 @@
 
 	<tr><td colspan=5><hr/></td></tr>
 	<tr>
-		<td colspan=2><input type="checkbox" onclick="checkAll()"/>전체선택</td>
+		<td colspan=2><input type="checkbox" id="allChkBox" onclick="checkAll()"/>전체선택</td>
 		<td colspan=3 align="right">
-			<input type="button" value='삭제' style="width: 100px; "/>
+			<input type="submit" formaction="<%=request.getContextPath() %>/Board/deleteProc.jsp?curPage=boardForm" value='삭제' style="width: 100px; "/>
 			<input type="submit" value='글쓰기' style="width: 100px; "/>
 		</td>
 	</tr>

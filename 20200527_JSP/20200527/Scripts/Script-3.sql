@@ -42,3 +42,7 @@ FROM(
 
 SELECT * FROM board
 ORDER BY NO ;
+
+
+
+DELETE FROM BOARD WHERE no = '26'
