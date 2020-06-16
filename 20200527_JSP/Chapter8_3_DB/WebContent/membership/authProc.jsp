@@ -20,6 +20,7 @@
 %>
 <jsp:forward page="/index.jsp">
 <jsp:param value="memberForm" name="frmPage"/>
+<jsp:param value="memberForm" name="curPage"/>
 </jsp:forward>
 
 

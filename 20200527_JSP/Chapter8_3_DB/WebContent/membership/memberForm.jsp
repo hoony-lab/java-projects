@@ -19,7 +19,7 @@
 <script src="<%=request.getContextPath() %>/js/memberForm.js" type="text/javascript"></script>
 <center>
 <form id="frm" action="<%=request.getContextPath() %>/membership/memberProc.jsp" method="post">
-<!-- <input type="hidden" name="frmPage" value="loginForm.jsp"> -->
+<input type="hidden" name="curPage" value="memberForm">
 <table>
 	<tr>
 		<td align='right' height=40>아이디</td>

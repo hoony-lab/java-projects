@@ -1,6 +1,7 @@
+<%@page import="Care.Lab.Board"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
-<%@page import="Care.Lab.Board"%>
+
 <%@ page contentType="text/html; charset=UTF-8"
    import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"
    import="com.oreilly.servlet.MultipartRequest"

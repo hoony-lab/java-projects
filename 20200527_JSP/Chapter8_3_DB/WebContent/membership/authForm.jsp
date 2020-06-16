@@ -3,7 +3,7 @@
 <script src="<%=request.getContextPath() %>/js/common.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath() %>/js/authForm.js" type="text/javascript"></script>
 <center>
-<form id="frm" action="<%=request.getContextPath() %>/membership/authProc.jsp" method="post">
+<form id="frm" action="<%=request.getContextPath() %>/membership/authProc.jsp?curPage=authForm" method="post">
 <table>
 	<tr>
 		<td>E-Mail
