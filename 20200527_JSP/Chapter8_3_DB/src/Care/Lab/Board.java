@@ -12,6 +12,8 @@ public class Board {
 	private String contents;
 	// ¿€º∫¿œ
 	private String writedate;
+	private Integer hit;
+	
 
 	public Integer getNo() {
 		return no;
@@ -51,5 +53,13 @@ public class Board {
 
 	public void setWritedate(String writedate) {
 		this.writedate = writedate;
+	}
+	
+	public Integer getHit() {
+		return hit;
+	}
+
+	public void setHit(Integer hit) {
+		this.hit = hit;
 	}
 }

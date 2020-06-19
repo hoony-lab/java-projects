@@ -1,0 +1,26 @@
+ALTER TABLE hit
+ADD CONSTRAINT FK_BOARD_HIT_NO
+	Foreign KEY (NO)
+	REFERENCES BOARD (NO)
+	ON DELETE CASCADE;
+	
+	
+	
+ALTER TABLE inventory
+ADD CONSTRAINT fk_inv_product_id
+    FOREIGN KEY (product_id)
+    REFERENCES products (product_id)
+    ON DELETE CASCADE;
+   
+ALTER TABLE HIT
+drop CONSTRAINT FK_BOARD_ID_MEMBER_ID;
+
+
+DROP TABLE hit
+
+CREATE TABLE hit(
+	NO int,
+	readno int
+)
+
+SELECT * FROM hit

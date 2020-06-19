@@ -6,7 +6,7 @@
 
 <%
 	String url = request.getContextPath() + "/Board/boardProc.jsp?curPage=boardForm&pageNum=";
-	List<Board> boardList = (List<Board>)request.getAttribute("boardList");
+	List<Board> boardList = (List<Board>)session.getAttribute("boardList");
 	
 	int totalPage = (int)request.getAttribute("totalPage");
 	int blockSize = (int)request.getAttribute("blockSize");
@@ -37,15 +37,15 @@
 	</tr>
 	
 <%
-	int idx = Integer.parseInt(request.getParameter("pageNum"));
+// 	int idx = Integer.parseInt(request.getParameter("pageNum"));
 	for(Board o : boardList){
 %>
 	<tr>
 		<td style="width: 40px; height:40px;" align="center"><input type="checkbox" id="chkBox" name="chkBox" value="<%=o.getNo() %>"/></td>
-		<td style="width: 330px; height:40px;" align="center"><%=o.getTitle() %></td>
+		<td style="width: 330px; height:40px;" align="center"><a href="<%=request.getContextPath() %>/Board/viewProc.jsp?curPage=boardForm&pageNum=<%=pageNum %>&no=<%=o.getNo() %>"> <%=o.getTitle() %></a></td>
 		<td style="width: 80px; height:40px;" align="center"><%=o.getId() %></td>
 		<td style="width: 120px; height:40px;" align="center"><%=o.getWritedate() %></td>
-		<td style="width: 80px; height:40px;" align="center">1</td>
+		<td style="width: 80px; height:40px;" align="center"><%=o.getHit() %></td>
 	</tr>
 <%
 	}
@@ -55,7 +55,7 @@
 	<tr>
 		<td colspan=2><input type="checkbox" id="allChkBox" onclick="checkAll()"/>전체선택</td>
 		<td colspan=3 align="right">
-			<input type="submit" formaction="<%=request.getContextPath() %>/Board/deleteProc.jsp?curPage=boardForm" value='삭제' style="width: 100px; "/>
+			<input type="submit" formaction="<%=request.getContextPath() %>/Board/boardProc.jsp?curPage=deleteProc&pageNum=1" value='삭제' style="width: 100px; "/>
 			<input type="submit" value='글쓰기' style="width: 100px; "/>
 		</td>
 	</tr>

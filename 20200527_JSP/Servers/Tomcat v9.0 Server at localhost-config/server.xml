@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Chapter8_2_Upload" path="/Chapter8_2_Upload" reloadable="true" source="org.eclipse.jst.jee.server:Chapter8_2_Upload"/><Context docBase="Chapter8_3_DB" path="/Chapter8_3_DB" reloadable="true" source="org.eclipse.jst.jee.server:Chapter8_3_DB"/></Host>
+      <Context docBase="Chapter8_2_Upload" path="/Chapter8_2_Upload" reloadable="true" source="org.eclipse.jst.jee.server:Chapter8_2_Upload"/><Context docBase="Chapter8_3_DB" path="/Chapter8_3_DB" reloadable="true" source="org.eclipse.jst.jee.server:Chapter8_3_DB"/><Context docBase="Chapter8_6Button" path="/Chapter8_6Button" reloadable="true" source="org.eclipse.jst.jee.server:Chapter8_6Button"/><Context docBase="Chapter8_7Modify" path="/Chapter8_7Modify" reloadable="true" source="org.eclipse.jst.jee.server:Chapter8_7Modify"/><Context docBase="zeus" path="/zeus" reloadable="true" source="org.eclipse.jst.jee.server:zeus"/><Context docBase="Chapter8_8ReplyInsert" path="/Chapter8_8ReplyInsert" reloadable="true" source="org.eclipse.jst.jee.server:Chapter8_8ReplyInsert"/><Context docBase="20200619_JSTL" path="/20200619_JSTL" reloadable="true" source="org.eclipse.jst.jee.server:20200619_JSTL"/></Host>
     </Engine>
   </Service>
 </Server>

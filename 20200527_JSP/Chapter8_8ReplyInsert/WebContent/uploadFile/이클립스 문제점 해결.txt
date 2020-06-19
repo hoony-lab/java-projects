@@ -1,0 +1,10 @@
+이클립스 소스 파일 더블클릭해도 안 열릴때!!!
+프로그래밍/개발간느낀점 2014. 7. 10. 18:20 
+"Windows" -> "New Window" seems to bring back the invisible editor view. Then just close the old one and restart eclipse to make sure it "remembers" the configuration.
+
+window -> new window 하면 소스파일 열린다.
+
+버그 같음...
+
+
+출처: https://daemonjin.tistory.com/entry/이클립스-소스-파일-더블클릭해도-안-열릴때 [뚱냥블로그]

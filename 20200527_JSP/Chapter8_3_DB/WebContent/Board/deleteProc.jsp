@@ -43,7 +43,7 @@
 	} else {
 %>
 <jsp:forward page="/index.jsp">
-	<jsp:param name="frmPage" value="boardForm"/>
+	<jsp:param name="frmPage" value="boardProc"/>
 </jsp:forward>
 <%-- <jsp:forward page="<%=request.getContextPath() %>/Board/boardProc.jsp?pageNum=1"> --%>
 <%-- 	<jsp:param name="frmPage" value="boardProc"/> --%>
