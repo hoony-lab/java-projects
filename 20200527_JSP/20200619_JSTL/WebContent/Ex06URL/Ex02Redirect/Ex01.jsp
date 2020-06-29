@@ -7,4 +7,4 @@
 	<c:param name="pw" value="1234"/>
 </c:url>
 
-<c:redirect url="${loginProc }"/>
+<c:redirect url="${loginProc }"/>4

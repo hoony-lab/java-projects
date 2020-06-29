@@ -1,0 +1,18 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@page import="java.sql.*"%>
+<%!
+public Connection getConn(String url, String port, String db){
+	Connection conn =  null;
+	String jdbcDriver = "jdbc:oracle:thin:@"+url+":"+port+":"+db;
+	String dbUsr = "c##hoony";
+	String dbPass = "0000";
+	
+	try{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		
+		conn = DriverManager.getConnection(jdbcDriver, dbUsr, dbPass);
+	}catch(Exception e){	e.printStackTrace();	}
+	
+	return conn;
+}
+%>
