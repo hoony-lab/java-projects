@@ -1,0 +1,6 @@
+New Server > Apache > Tomcat v9.0 Server > Finish
+Project Properties > Java Build Path > Add Library > Server Runtime
+
+(From Project Explorer Show View) Servers > Tomcat ... > server.xml > line 20 >  change to "<Server port="8005" shutdown="SHUTDOWN">"
+(From menu tap) Windows > Preferences > 
+	>> Web >> CSS/HTML/JSP Files >> Encoding >> ISO 10646/Unicode(UTF-8)
